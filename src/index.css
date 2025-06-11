@@ -1,0 +1,65 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FLO Energy Design System - Purple and White Theme */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 270 15% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 15% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 15% 10%;
+
+    --primary: 270 91% 35%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 270 20% 96%;
+    --secondary-foreground: 270 15% 15%;
+
+    --muted: 270 20% 96%;
+    --muted-foreground: 270 10% 45%;
+
+    --accent: 270 91% 90%;
+    --accent-foreground: 270 91% 35%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 270 91% 35%;
+
+    --radius: 0.5rem;
+
+    --flo-purple: 270 91% 35%;
+    --flo-purple-light: 270 91% 85%;
+    --flo-purple-dark: 270 91% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.flo-gradient {
+  background: linear-gradient(135deg, hsl(var(--flo-purple)) 0%, hsl(var(--flo-purple-dark)) 100%);
+}
+
+.flo-text-gradient {
+  background: linear-gradient(135deg, hsl(var(--flo-purple)) 0%, hsl(var(--flo-purple-dark)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

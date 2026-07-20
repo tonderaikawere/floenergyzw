@@ -1,6 +1,6 @@
 # FLO Energy Zimbabwe
 
-FLO Energy Zimbabwe is a modern, responsive fuels-and-energy website built for showcasing the company’s services, locations, bulk fuel offerings, customer support, and company information. The project has been cleaned up to remove Lovable-specific scaffolding and any AI-associated tooling so it can be maintained directly as a standard Vite + React + TypeScript application.
+FLO Energy Zimbabwe is a modern, responsive fuels-and-energy website built for showcasing the company’s services, locations, bulk fuel offerings, customer support, and company information. The project is a standard Vite + React + TypeScript application.
 
 ## Highlights
 

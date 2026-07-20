@@ -1,73 +1,67 @@
-# Welcome to your Lovable project
+# FLO Energy Zimbabwe
 
-## Project info
+FLO Energy Zimbabwe is a modern, responsive fuels-and-energy website built for showcasing the company’s services, locations, bulk fuel offerings, customer support, and company information. The project has been cleaned up to remove Lovable-specific scaffolding and any AI-associated tooling so it can be maintained directly as a standard Vite + React + TypeScript application.
 
-**URL**: https://lovable.dev/projects/33115f5e-8c56-4381-b8b8-d024735cf4fe
+## Highlights
 
-## How can I edit this code?
+- Responsive landing page for fuel, lubricant, and energy services
+- Dedicated pages for services, about, locations, bulk fuel, FAQs, contact, and privacy policy
+- Clean navigation and polished presentation for both desktop and mobile users
+- Modern frontend stack with Tailwind CSS and reusable UI components
 
-There are several ways of editing your application.
+## Tech stack
 
-**Use Lovable**
+- Vite
+- React 18
+- TypeScript
+- Tailwind CSS
+- shadcn/ui styling primitives
+- React Router DOM
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/33115f5e-8c56-4381-b8b8-d024735cf4fe) and start prompting.
+## Getting started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18 or later
+- npm 9 or later
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+git clone https://github.com/tonderaikawere/floenergyzw.git
+cd floenergyzw
+npm install
+```
 
-Follow these steps:
+### Development
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Then open the local Vite URL shown in the terminal.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Production build
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project structure
 
-## What technologies are used for this project?
+- src/pages — route-based content pages
+- src/components — shared layout, header, footer, and UI wrappers
+- src/lib — helper utilities
+- public — static assets
 
-This project is built with:
+## Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project can be deployed to any static host that supports Vite builds, including Netlify, Vercel, Cloudflare Pages, or a simple Node-based web server.
 
-## How can I deploy this project?
+## Contact
 
-Simply open [Lovable](https://lovable.dev/projects/33115f5e-8c56-4381-b8b8-d024735cf4fe) and click on Share -> Publish.
+For business inquiries, visit the official site at [https://floenergy.net](https://floenergy.net) or use the contact page in this application.
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

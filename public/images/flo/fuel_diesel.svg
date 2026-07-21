@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#12161f" />
+  <rect x="0" y="320" width="600" height="80" fill="#191e28" />
+  
+  <!-- High Tech Fuel Storage Tank -->
+  <rect x="120" y="80" width="360" height="200" rx="30" fill="#1f2532" stroke="#ffb400" stroke-width="4" />
+  <path d="M120 180 L480 180" stroke="#ffb400" stroke-opacity="0.3" stroke-width="2" />
+  
+  <!-- Diesel Nozzle & Flow Pipe -->
+  <path d="M480 180 Q520 180 520 220 L520 280" fill="none" stroke="#ffb400" stroke-width="12" stroke-linecap="round" />
+  <circle cx="520" cy="290" r="16" fill="#ffb400" />
+  
+  <text x="300" y="140" font-family="'Montserrat', sans-serif" font-weight="900" font-size="24" fill="#ffb400" text-anchor="middle" letter-spacing="2">DIESEL 50PPM</text>
+  <text x="300" y="170" font-family="'Montserrat', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="1">ZERA ULTRA-LOW SULFUR GRADE</text>
+  
+  <!-- Purity Gauge -->
+  <circle cx="300" cy="230" r="30" fill="#12161f" stroke="#ffb400" stroke-width="3" />
+  <path d="M300 230 L315 215" stroke="#ffb400" stroke-width="4" stroke-linecap="round" />
+</svg>

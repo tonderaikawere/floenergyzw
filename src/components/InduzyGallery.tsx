@@ -7,19 +7,19 @@ export const InduzyGallery: React.FC = () => {
     {
       title: 'Donnybrook Station (Harare)',
       subtitle: '24/7 Retail & LPG Exchange Terminal',
-      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg',
+      image: '/images/flo/station1.svg',
       link: '/locations',
     },
     {
       title: 'Bulk Fuel Logistics Terminal',
       subtitle: '10,000L - 40,000L Metered Fleet Dispatch',
-      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo2.jpg',
+      image: '/images/flo/station2.svg',
       link: '/bulk-fuel',
     },
     {
       title: 'Burnside Station (Bulawayo)',
       subtitle: 'High-Flow Diesel 50ppm & Fleet Cards',
-      image: 'https://floenergy.net/wp-content/uploads/2018/05/Petrol.jpg',
+      image: '/images/flo/hero_petrol.svg',
       link: '/locations',
     },
   ];

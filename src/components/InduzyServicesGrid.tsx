@@ -9,7 +9,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Low Sulfur Diesel 50ppm',
       desc: 'Ultra-clean diesel engineered to protect heavy industrial engines, haulage trucks, and mining excavators.',
       icon: Fuel,
-      image: 'https://floenergy.net/wp-content/uploads/2018/05/Petrol.jpg',
+      image: '/images/flo/fuel_diesel.svg',
       link: '/services',
     },
     {
@@ -17,7 +17,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Metered Tanker Delivery Fleet',
       desc: 'Metered 10,000L to 40,000L tanker dispatch to commercial tanks, farms, and remote operational sites.',
       icon: Truck,
-      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo2.jpg',
+      image: '/images/flo/station2.svg',
       link: '/bulk-fuel',
     },
     {
@@ -25,7 +25,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Commercial Fleet Card System',
       desc: 'Cashless fuel management with driver PIN security, odometer entry, and daily liter limit controls.',
       icon: CreditCard,
-      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg',
+      image: '/images/flo/station1.svg',
       link: '/fleet-card',
     },
     {
@@ -33,7 +33,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Unleaded Petrol E10 Blend',
       desc: 'ZERA compliant ethanol blended unleaded petrol for commercial fleets and retail motorists.',
       icon: Droplet,
-      image: 'https://floenergy.net/wp-content/uploads/2018/05/Petrol.jpg',
+      image: '/images/flo/fuel_petrol.svg',
       link: '/services',
     },
     {
@@ -41,7 +41,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'LP Gas Cylinder & Bulk Supply',
       desc: 'Domestic and commercial LPG solutions with certified pressure-tested cylinder exchange.',
       icon: Flame,
-      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg',
+      image: '/images/flo/fuel_lpg.svg',
       link: '/services',
     },
     {
@@ -49,7 +49,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Heavy Engine Lubricants',
       desc: 'Industrial engine oils, transmission fluids, and high-temp greases for heavy African machinery.',
       icon: ShieldCheck,
-      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo2.jpg',
+      image: '/images/flo/station2.svg',
       link: '/services',
     },
   ];

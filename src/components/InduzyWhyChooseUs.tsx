@@ -83,7 +83,7 @@ export const InduzyWhyChooseUs: React.FC = () => {
           <div className="lg:col-span-6 relative">
             <div className="overflow-hidden border-4 border-white/10 shadow-2xl">
               <img
-                src="https://floenergy.net/wp-content/uploads/2020/06/Flo2.jpg"
+                src="/images/flo/station2.svg"
                 alt="FLO Energy Bulk Tanker Terminal"
                 className="w-full h-[540px] object-cover"
               />

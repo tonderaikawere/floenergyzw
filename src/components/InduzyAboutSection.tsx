@@ -10,7 +10,7 @@ export const InduzyAboutSection: React.FC = () => {
         <div className="lg:col-span-6 relative">
           <div className="relative overflow-hidden shadow-2xl border-4 border-white">
             <img
-              src="https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg"
+              src="/images/flo/station1.svg"
               alt="FLO Energy Station Facility"
               className="w-full h-[460px] object-cover"
             />

@@ -42,7 +42,7 @@ export const About: React.FC = () => {
 
           <div className="lg:col-span-5">
             <img
-              src="https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg"
+              src="/images/flo/station1.svg"
               alt="FLO Energy Station"
               className="rounded-2xl border-2 border-white/20 shadow-2xl h-64 w-full object-cover"
             />

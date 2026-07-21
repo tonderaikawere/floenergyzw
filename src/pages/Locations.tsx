@@ -31,7 +31,7 @@ export const Locations: React.FC = () => {
       phone: '+263 77 224 5578',
       hours: '24 Hours / 7 Days',
       amenities: ['Diesel 50ppm', 'Unleaded E10', 'High-Flow Pumps', 'LPG Exchange', 'Convenience Store'],
-      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg',
+      image: '/images/flo/station1.svg',
     },
     {
       id: 'burnside',
@@ -41,7 +41,7 @@ export const Locations: React.FC = () => {
       phone: '+263 71 221 3338',
       hours: '24 Hours / 7 Days',
       amenities: ['Diesel 50ppm', 'Unleaded E10', 'Bulk Terminal', 'Fleet Cards', 'Lubricants Bay'],
-      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo2.jpg',
+      image: '/images/flo/station2.svg',
     },
     {
       id: 'ironbridge',
@@ -51,7 +51,7 @@ export const Locations: React.FC = () => {
       phone: '+263 77 224 5578',
       hours: '24 Hours / 7 Days',
       amenities: ['Heavy Haulage Pumps', 'Diesel 50ppm', 'Fast Card Lanes', 'Clean Fuel Guarantee'],
-      image: 'https://floenergy.net/wp-content/uploads/2018/05/Petrol.jpg',
+      image: '/images/flo/hero_petrol.svg',
     },
   ];
 

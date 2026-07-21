@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#12161f" />
+  
+  <!-- Petrol Pump Unit -->
+  <rect x="180" y="60" width="240" height="260" rx="15" fill="#1f2532" stroke="#ffb400" stroke-width="4" />
+  <rect x="210" y="90" width="180" height="70" rx="5" fill="#12161f" stroke="#ffb400" stroke-width="2" />
+  <text x="300" y="130" font-family="'Montserrat', sans-serif" font-weight="900" font-size="20" fill="#ffb400" text-anchor="middle">UNLEADED E10</text>
+  
+  <!-- Green Clean Blend Badge -->
+  <rect x="230" y="190" width="140" height="35" rx="17" fill="#10b981" />
+  <text x="300" y="213" font-family="'Montserrat', sans-serif" font-weight="800" font-size="12" fill="#ffffff" text-anchor="middle">CLEAN BLEND</text>
+  
+  <!-- Hose -->
+  <path d="M420 180 C480 180 480 280 420 280" fill="none" stroke="#ffb400" stroke-width="8" />
+</svg>

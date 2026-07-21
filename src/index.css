@@ -99,6 +99,14 @@
   box-shadow: 0 10px 30px -10px rgba(61, 11, 94, 0.12);
 }
 
+.flo-section-clean {
+  @apply py-16 px-4 max-w-7xl mx-auto w-full;
+}
+
+.flo-card-clean {
+  @apply bg-white rounded-3xl p-8 border border-gray-100 shadow-md hover:shadow-xl transition duration-300;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }

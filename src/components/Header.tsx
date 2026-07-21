@@ -1,10 +1,11 @@
-
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone, Mail, Clock, ShieldCheck, Fuel } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import QuoteModal from './QuoteModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const location = useLocation();
 
   const navigation = [
@@ -13,6 +14,7 @@ const Header = () => {
     { name: 'About', href: '/about' },
     { name: 'Locations', href: '/locations' },
     { name: 'Bulk Fuel', href: '/bulk-fuel' },
+    { name: 'Fleet Cards', href: '/fleet-card' },
     { name: 'FAQs', href: '/faqs' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -20,73 +22,128 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0">
-              <img
-                className="h-10 sm:h-12 w-auto"
-                src="https://floenergy.net/wp-content/uploads/2018/05/Flo-1.png"
-                alt="FLO Energy"
-              />
-            </Link>
+    <>
+      {/* Top Announcement Bar */}
+      <div className="bg-flo-dark text-white text-xs py-2 px-4 border-b border-white/10 hidden md:block">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-6">
+            <span className="flex items-center space-x-1 text-flo-gold font-medium">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>ZERA Certified Petroleum Supplier</span>
+            </span>
+            <span className="flex items-center space-x-1 text-gray-300">
+              <Clock className="w-3.5 h-3.5 text-flo-gold" />
+              <span>24/7 Bulk Fuel Logistics Dispatch</span>
+            </span>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:block">
-            <div className="ml-10 flex items-baseline space-x-4 xl:space-x-8">
+          <div className="flex items-center space-x-6">
+            <a href="tel:+263772245578" className="flex items-center space-x-1 text-gray-300 hover:text-white transition">
+              <Phone className="w-3.5 h-3.5 text-flo-gold" />
+              <span>+263 77 224 5578</span>
+            </a>
+            <a href="mailto:sales1@floenergy.net" className="flex items-center space-x-1 text-gray-300 hover:text-white transition">
+              <Mail className="w-3.5 h-3.5 text-flo-gold" />
+              <span>sales1@floenergy.net</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header Navigation */}
+      <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo */}
+            <div className="flex items-center">
+              <Link to="/" className="flex items-center space-x-3 group">
+                <img
+                  className="h-12 sm:h-14 w-auto object-contain transition group-hover:scale-105"
+                  src="https://floenergy.net/wp-content/uploads/2018/05/Flo-1.png"
+                  alt="FLO Energy Zimbabwe"
+                />
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`px-3 py-2 text-sm font-semibold transition-all rounded-lg ${
                     isActive(item.href)
-                      ? 'text-primary border-b-2 border-primary'
-                      : 'text-gray-700 hover:text-primary hover:border-b-2 hover:border-primary'
+                      ? 'text-flo-purple bg-flo-purple-subtle font-bold'
+                      : 'text-gray-700 hover:text-flo-purple hover:bg-gray-50'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-            </div>
-          </nav>
+            </nav>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary hover:bg-gray-100 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="lg:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t shadow-lg">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`block px-3 py-2 text-base font-medium transition-colors ${
-                  isActive(item.href)
-                    ? 'text-primary bg-accent'
-                    : 'text-gray-700 hover:text-primary hover:bg-accent'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
+            {/* CTA & Mobile Toggle */}
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={() => setIsQuoteOpen(true)}
+                className="hidden sm:flex items-center space-x-2 flo-gold-gradient text-flo-dark font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl shadow-md hover:brightness-105 transition"
               >
-                {item.name}
-              </Link>
-            ))}
+                <Fuel className="w-4 h-4 text-flo-dark" />
+                <span>Get Instant Quote</span>
+              </button>
+
+              <div className="lg:hidden">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="p-2.5 rounded-xl text-gray-700 hover:text-flo-purple hover:bg-gray-100 transition"
+                  aria-label="Toggle menu"
+                >
+                  {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl">
+            <div className="px-4 pt-3 pb-6 space-y-1.5">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`block px-4 py-3 rounded-xl text-base font-semibold transition ${
+                    isActive(item.href)
+                      ? 'text-flo-purple bg-flo-purple-subtle font-bold'
+                      : 'text-gray-700 hover:text-flo-purple hover:bg-gray-50'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+
+              <div className="pt-4 border-t border-gray-100">
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsQuoteOpen(true);
+                  }}
+                  className="w-full flex items-center justify-center space-x-2 flo-gold-gradient text-flo-dark font-bold text-sm py-3 rounded-xl shadow-md"
+                >
+                  <Fuel className="w-4 h-4 text-flo-dark" />
+                  <span>Get Instant Quote</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Quote Modal */}
+      <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
+    </>
   );
 };
 

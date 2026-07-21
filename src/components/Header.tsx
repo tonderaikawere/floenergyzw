@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Menu, X, Phone, Mail, Clock, ShieldCheck, Fuel } from 'lucide-react';
+import { Menu, X, Phone, Mail, Clock, ShieldCheck, Fuel, Search } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import QuoteModal from './QuoteModal';
+import SearchModal from './SearchModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
 
   const navigation = [
@@ -85,6 +87,14 @@ const Header = () => {
             {/* CTA & Mobile Toggle */}
             <div className="flex items-center space-x-3">
               <button
+                onClick={() => setIsSearchOpen(true)}
+                className="p-2.5 rounded-xl text-gray-700 hover:text-flo-purple hover:bg-gray-100 transition"
+                aria-label="Search site"
+              >
+                <Search className="w-5 h-5" />
+              </button>
+
+              <button
                 onClick={() => setIsQuoteOpen(true)}
                 className="hidden sm:flex items-center space-x-2 flo-gold-gradient text-flo-dark font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl shadow-md hover:brightness-105 transition"
               >
@@ -141,8 +151,9 @@ const Header = () => {
         )}
       </header>
 
-      {/* Quote Modal */}
+      {/* Quote & Search Modals */}
       <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
 };

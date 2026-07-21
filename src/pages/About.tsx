@@ -1,85 +1,94 @@
+import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import FuelPriceTicker from '../components/FuelPriceTicker';
+import { ShieldCheck, Award, Users, Fuel, Truck, CheckCircle2, TrendingUp, Shield } from 'lucide-react';
 
-import { useEffect } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+export const About: React.FC = () => {
+  const timeline = [
+    { year: '2012', title: 'Establishment of FLO Petroleum', desc: 'Founded in Zimbabwe to provide clean, reliable petroleum solutions for local industries.' },
+    { year: '2016', title: 'Retail Station Network Expansion', desc: 'Opened flagship service stations in Harare (Donnybrook) and Bulawayo (Burnside & Ironbridge).' },
+    { year: '2020', title: 'Bulk Fuel Logistics Fleet', desc: 'Acquired custom-metered 10,000L - 40,000L fuel tankers for direct commercial on-site delivery.' },
+    { year: 'Present', title: 'National Energy Partner', desc: 'Supplying over 1,000 corporate clients, transport fleets, farms, and mines across Zimbabwe.' },
+  ];
 
-const About = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const values = [
+    { title: 'Quality Assurance', desc: '100% water-free, ZERA compliant fuel standard testing before every retail pump and tanker delivery.' },
+    { title: 'Customer Reliability', desc: '24/7 continuous dispatch logistics ensuring commercial partners never face operational downtime.' },
+    { title: 'Integrity & Transparency', desc: 'Accurate flow metering, clear commercial contract pricing, and zero compromise on specifications.' },
+    { title: 'Safety & Compliance', desc: 'Strict safety standards for hazardous material transportation and environmental risk management.' },
+  ];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-primary text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            About FLO Energy
-          </h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            With over 70 years of experience in the fuel industry, FLO offers you the right service, at the right price.
-          </p>
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Header />
+      <FuelPriceTicker />
+
+      {/* Hero */}
+      <section className="flo-hero-gradient text-white py-16 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 space-y-4">
+            <span className="bg-flo-gold text-flo-dark text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-flex items-center space-x-1">
+              <ShieldCheck className="w-4 h-4" />
+              <span>About FLO Energy Zimbabwe</span>
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-black">Powering Zimbabwe’s Industrial Growth</h1>
+            <p className="text-gray-200 text-base leading-relaxed">
+              FLO Energy Zimbabwe (FLO Petroleum) is a premier petroleum sales, retail, and bulk logistics provider committed to fuel purity, customer transparency, and operational excellence.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5">
+            <img
+              src="https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg"
+              alt="FLO Energy Station"
+              className="rounded-2xl border-2 border-white/20 shadow-2xl h-64 w-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
-      {/* About Content */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Our Story
-              </h2>
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  "FLO has a dedicated passion for people and aspires to make every person feel valued for their contribution. This focus on every individual reaching their potential enhances loyalty and dedication within FLO."
-                </p>
-                <p>
-                  Our progress and sustainable growth in the energy sector go hand in hand with our desire and responsibility to consciously conserve and preserve our environment.
-                </p>
-                <p>
-                  Approachable leadership encourages wisdom and innovation to the forefront which translates to prosperity for all. Hard work ethic forms the FLO cornerstone and within a culture of loyalty, dignity and integrity we continue to elevate FLO in the competitive energy sector.
-                </p>
-                <p className="font-semibold text-primary">
-                  This Zimbabwean Company is open for business
-                </p>
+      {/* History Timeline */}
+      <section className="py-16 px-4 max-w-7xl mx-auto w-full">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl font-extrabold text-flo-purple">Our Journey & Growth</h2>
+          <p className="text-gray-600 text-sm mt-1">A decade of continuous innovation and energy delivery across Zimbabwe.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {timeline.map((item, idx) => (
+            <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative">
+              <div className="text-xs font-extrabold text-flo-gold bg-flo-dark px-3 py-1 rounded-full inline-block mb-3">
+                {item.year}
               </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-gray-600 text-xs leading-relaxed">{item.desc}</p>
             </div>
-            <div className="relative">
-              <img
-                src="https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg"
-                alt="FLO Energy Station"
-                className="rounded-lg shadow-lg w-full h-auto"
-              />
-            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-16 bg-white border-t border-gray-100 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl font-extrabold text-flo-purple">Core Operational Values</h2>
+            <p className="text-gray-600 text-sm mt-1">The standards that guide every liter of fuel we supply.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((v, idx) => (
+              <div key={idx} className="p-6 rounded-2xl bg-gray-50 border border-gray-100 space-y-3">
+                <CheckCircle2 className="w-8 h-8 text-flo-emerald" />
+                <h4 className="text-lg font-bold text-gray-900">{v.title}</h4>
+                <p className="text-gray-600 text-xs leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-primary mb-4">Our Mission</h3>
-                <p className="text-gray-700">
-                  To provide quality fuel products and services with over 70 years of experience, 
-                  ensuring reliability and customer satisfaction at competitive prices.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-primary mb-4">Our Vision</h3>
-                <p className="text-gray-700">
-                  To be Zimbabwe's leading energy company, driving growth through innovation, 
-                  environmental responsibility, and exceptional service delivery.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <Footer />
     </div>
   );
 };

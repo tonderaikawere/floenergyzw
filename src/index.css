@@ -1,45 +1,48 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* FLO Energy Design System - Purple and White Theme */
+/* FLO Energy Zimbabwe - Brand Colors & Modern Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 270 15% 10%;
+    --background: 220 20% 98%;
+    --foreground: 275 60% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 270 15% 10%;
+    --card-foreground: 275 60% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 270 15% 10%;
+    --popover-foreground: 275 60% 12%;
 
-    --primary: 270 91% 35%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 275 78% 21%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 20% 96%;
-    --secondary-foreground: 270 15% 15%;
+    --secondary: 43 96% 52%;
+    --secondary-foreground: 275 78% 15%;
 
-    --muted: 270 20% 96%;
-    --muted-foreground: 270 10% 45%;
+    --muted: 220 15% 93%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 270 91% 90%;
-    --accent-foreground: 270 91% 35%;
+    --accent: 268 85% 94%;
+    --accent-foreground: 268 85% 35%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 270 20% 90%;
-    --input: 270 20% 90%;
-    --ring: 270 91% 35%;
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 275 78% 21%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --flo-purple: 270 91% 35%;
-    --flo-purple-light: 270 91% 85%;
-    --flo-purple-dark: 270 91% 25%;
+    /* FLO Brand HSL Tokens */
+    --flo-purple: 275 78% 21%;
+    --flo-purple-light: 268 85% 45%;
+    --flo-purple-subtle: 268 85% 94%;
+    --flo-gold: 43 96% 52%;
+    --flo-emerald: 160 84% 39%;
+    --flo-dark: 222 47% 11%;
   }
 }
 
@@ -49,17 +52,64 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-secondary selection:text-secondary-foreground;
   }
 }
 
+/* FLO Brand Utilities */
 .flo-gradient {
-  background: linear-gradient(135deg, hsl(var(--flo-purple)) 0%, hsl(var(--flo-purple-dark)) 100%);
+  background: linear-gradient(135deg, hsl(var(--flo-purple)) 0%, hsl(275, 90%, 15%) 100%);
+}
+
+.flo-hero-gradient {
+  background: linear-gradient(135deg, rgba(61, 11, 94, 0.92) 0%, rgba(20, 3, 33, 0.95) 100%);
+}
+
+.flo-gold-gradient {
+  background: linear-gradient(135deg, hsl(43, 96%, 52%) 0%, hsl(38, 92%, 46%) 100%);
 }
 
 .flo-text-gradient {
-  background: linear-gradient(135deg, hsl(var(--flo-purple)) 0%, hsl(var(--flo-purple-dark)) 100%);
+  background: linear-gradient(135deg, hsl(var(--flo-purple)) 0%, hsl(var(--flo-purple-light)) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.flo-gold-text-gradient {
+  background: linear-gradient(135deg, hsl(43, 96%, 52%) 0%, hsl(32, 98%, 55%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.flo-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.flo-glass-dark {
+  background: rgba(26, 7, 43, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.flo-card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(61, 11, 94, 0.12);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

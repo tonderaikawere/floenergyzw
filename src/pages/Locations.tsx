@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FuelPriceTicker from '../components/FuelPriceTicker';
-import { MapPin, Phone, Clock, Search, ShieldCheck, Fuel, Car, Coffee, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Clock, Search, ShieldCheck, Fuel, Car, Coffee, CheckCircle2, Navigation } from 'lucide-react';
+import { getStationMapUrl } from '../lib/maps';
 
 interface Station {
   id: string;
@@ -138,13 +139,22 @@ export const Locations: React.FC = () => {
 
                 <div className="pt-4 border-t border-gray-100">
                   <div className="text-xs font-bold text-gray-700 mb-2">Available Amenities:</div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {st.amenities.map((am, idx) => (
                       <span key={idx} className="bg-gray-100 text-gray-700 text-xs px-2.5 py-1 rounded-md font-medium">
                         {am}
                       </span>
                     ))}
                   </div>
+                  <a
+                    href={getStationMapUrl(st.id)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 bg-flo-purple-subtle hover:bg-flo-purple hover:text-white text-flo-purple font-bold text-xs rounded-xl transition flex items-center justify-center space-x-2"
+                  >
+                    <Navigation className="w-3.5 h-3.5" />
+                    <span>Get Directions on Map</span>
+                  </a>
                 </div>
               </div>
             </div>

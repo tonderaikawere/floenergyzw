@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Send, CheckCircle2, Fuel, ShieldCheck } from 'lucide-react';
+import ReceiptSimulator from './ReceiptSimulator';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -59,6 +60,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, default
               <p className="text-gray-600 text-sm max-w-xs mx-auto">
                 Thank you, <span className="font-semibold text-gray-900">{name}</span>. Our FLO sales team will call you at <span className="font-semibold text-gray-900">{phone}</span> within 15 minutes.
               </p>
+              <ReceiptSimulator
+                product={product}
+                volume={volume}
+                location={location}
+                totalEst={`$${(Number(volume) * 1.48).toLocaleString()}`}
+              />
               <div className="inline-flex items-center text-xs text-flo-emerald bg-flo-emerald/10 px-3 py-1.5 rounded-full font-medium">
                 <ShieldCheck className="w-4 h-4 mr-1" /> Guaranteed ZERA Quality & SLA
               </div>

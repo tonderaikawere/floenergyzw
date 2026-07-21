@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FuelPriceTicker from '../components/FuelPriceTicker';
 import QuoteModal from '../components/QuoteModal';
+import ZeraBadge from '../components/ZeraBadge';
 import { Fuel, Truck, Droplet, Flame, ShieldCheck, CreditCard, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const Services: React.FC = () => {
@@ -134,6 +135,10 @@ export const Services: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-12">
+          <ZeraBadge />
         </div>
       </section>
 

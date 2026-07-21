@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FuelPriceTicker from '../components/FuelPriceTicker';
 import QuoteModal from '../components/QuoteModal';
+import ZeraBadge from '../components/ZeraBadge';
 import { Truck, Fuel, ShieldCheck, CheckCircle2, ArrowRight, Shield, Award, Clock } from 'lucide-react';
 
 export const BulkFuel: React.FC = () => {
@@ -100,6 +101,10 @@ export const BulkFuel: React.FC = () => {
             <span>Request Contract Quote ({selectedCapacity})</span>
             <ArrowRight className="w-4 h-4" />
           </button>
+        </div>
+
+        <div className="mt-12">
+          <ZeraBadge />
         </div>
       </section>
 

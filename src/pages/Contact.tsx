@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FuelPriceTicker from '../components/FuelPriceTicker';
 import EmergencyDispatch from '../components/EmergencyDispatch';
+import FeedbackWidget from '../components/FeedbackWidget';
 import { Phone, Mail, MapPin, Send, CheckCircle2, Clock, ShieldCheck, Fuel } from 'lucide-react';
 
 export const Contact: React.FC = () => {
@@ -136,8 +137,9 @@ export const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-12 space-y-8">
           <EmergencyDispatch />
+          <FeedbackWidget />
         </div>
       </section>
 

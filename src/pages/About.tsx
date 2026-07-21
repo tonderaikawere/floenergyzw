@@ -42,8 +42,8 @@ export const About: React.FC = () => {
 
           <div className="lg:col-span-5">
             <img
-              src="/images/flo/station1.svg"
-              alt="FLO Energy Station"
+              src="/images/flo/station_fb.jpg"
+              alt="FLO Energy Station Facebook Photo"
               className="rounded-2xl border-2 border-white/20 shadow-2xl h-64 w-full object-cover"
             />
           </div>

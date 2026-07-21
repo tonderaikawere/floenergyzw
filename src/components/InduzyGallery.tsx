@@ -7,19 +7,19 @@ export const InduzyGallery: React.FC = () => {
     {
       title: 'Donnybrook Station (Harare)',
       subtitle: '24/7 Retail & LPG Exchange Terminal',
-      image: '/images/flo/station1.svg',
+      image: '/images/flo/station_fb.jpg',
       link: '/locations',
     },
     {
       title: 'Bulk Fuel Logistics Terminal',
       subtitle: '10,000L - 40,000L Metered Fleet Dispatch',
-      image: '/images/flo/station2.svg',
+      image: '/images/flo/tanker_fb.jpg',
       link: '/bulk-fuel',
     },
     {
       title: 'Burnside Station (Bulawayo)',
       subtitle: 'High-Flow Diesel 50ppm & Fleet Cards',
-      image: '/images/flo/hero_petrol.svg',
+      image: '/images/flo/logo_fb.jpg',
       link: '/locations',
     },
   ];

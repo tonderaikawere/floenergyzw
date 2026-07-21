@@ -46,7 +46,7 @@ export const InduzyHero: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center transform scale-105"
           style={{
-            backgroundImage: "url('/images/flo/hero_petrol.svg'), url('https://floenergy.net/wp-content/uploads/2018/05/Petrol.jpg')",
+            backgroundImage: "url('/images/flo/tanker_fb.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#12161f]/95 via-[#1a1f2b]/90 to-[#12161f]/95" />

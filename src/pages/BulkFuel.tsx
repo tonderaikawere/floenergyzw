@@ -50,8 +50,8 @@ export const BulkFuel: React.FC = () => {
 
           <div className="lg:col-span-5">
             <img
-              src="/images/flo/station2.svg"
-              alt="FLO Fuel Station Tanker"
+              src="/images/flo/tanker_fb.jpg"
+              alt="FLO Fuel Station Tanker Facebook Photo"
               className="rounded-2xl border-2 border-white/20 shadow-2xl h-64 w-full object-cover"
             />
           </div>

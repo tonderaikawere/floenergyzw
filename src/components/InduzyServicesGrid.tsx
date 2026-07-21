@@ -9,7 +9,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Low Sulfur Diesel 50ppm',
       desc: 'Ultra-clean diesel engineered to protect heavy industrial engines, haulage trucks, and mining excavators.',
       icon: Fuel,
-      image: '/images/flo/fuel_diesel.svg',
+      image: '/images/flo/station_fb.jpg',
       link: '/services',
     },
     {
@@ -17,7 +17,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Metered Tanker Delivery Fleet',
       desc: 'Metered 10,000L to 40,000L tanker dispatch to commercial tanks, farms, and remote operational sites.',
       icon: Truck,
-      image: '/images/flo/station2.svg',
+      image: '/images/flo/tanker_fb.jpg',
       link: '/bulk-fuel',
     },
     {
@@ -25,7 +25,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Commercial Fleet Card System',
       desc: 'Cashless fuel management with driver PIN security, odometer entry, and daily liter limit controls.',
       icon: CreditCard,
-      image: '/images/flo/station1.svg',
+      image: '/images/flo/station_fb.jpg',
       link: '/fleet-card',
     },
     {
@@ -33,7 +33,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Unleaded Petrol E10 Blend',
       desc: 'ZERA compliant ethanol blended unleaded petrol for commercial fleets and retail motorists.',
       icon: Droplet,
-      image: '/images/flo/fuel_petrol.svg',
+      image: '/images/flo/station_fb.jpg',
       link: '/services',
     },
     {
@@ -41,7 +41,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'LP Gas Cylinder & Bulk Supply',
       desc: 'Domestic and commercial LPG solutions with certified pressure-tested cylinder exchange.',
       icon: Flame,
-      image: '/images/flo/fuel_lpg.svg',
+      image: '/images/flo/tanker_fb.jpg',
       link: '/services',
     },
     {
@@ -49,7 +49,7 @@ export const InduzyServicesGrid: React.FC = () => {
       title: 'Heavy Engine Lubricants',
       desc: 'Industrial engine oils, transmission fluids, and high-temp greases for heavy African machinery.',
       icon: ShieldCheck,
-      image: '/images/flo/station2.svg',
+      image: '/images/flo/station_fb.jpg',
       link: '/services',
     },
   ];

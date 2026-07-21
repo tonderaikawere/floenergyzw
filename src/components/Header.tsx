@@ -60,10 +60,9 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img
-              className="h-14 w-auto object-contain"
-              src="/images/flo/logo.svg"
-              onError={(e) => { (e.target as HTMLImageElement).src = "https://floenergy.net/wp-content/uploads/2018/05/Flo-1.png"; }}
-              alt="FLO Energy Zimbabwe"
+              className="h-14 w-auto object-contain rounded-full shadow-sm"
+              src="/images/flo/logo_fb.jpg"
+              alt="FLO Energy Zimbabwe Facebook Logo"
             />
           </Link>
 
@@ -110,10 +109,9 @@ const Header = () => {
             <div className="lg:hidden flex items-center">
               <Link to="/">
                 <img
-                  className="h-10 w-auto object-contain bg-white/90 p-1 rounded-lg"
-                  src="/images/flo/logo.svg"
-                  onError={(e) => { (e.target as HTMLImageElement).src = "https://floenergy.net/wp-content/uploads/2018/05/Flo-1.png"; }}
-                  alt="FLO Energy Zimbabwe"
+                  className="h-10 w-auto object-contain rounded-full border border-white/20 shadow-sm"
+                  src="/images/flo/logo_fb.jpg"
+                  alt="FLO Energy Zimbabwe Facebook Logo"
                 />
               </Link>
             </div>

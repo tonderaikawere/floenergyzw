@@ -1,32 +1,32 @@
-# FLO Energy Zimbabwe
+# FLO Energy Zimbabwe Website
 
-FLO Energy Zimbabwe is a modern, responsive fuels-and-energy website built for showcasing the company’s services, locations, bulk fuel offerings, customer support, and company information. The project is a standard Vite + React + TypeScript application.
+Official web application for FLO Energy Zimbabwe (FLO Petroleum), showcasing petroleum retail service stations, bulk tanker fuel logistics, fleet card management, and commercial fuel quote calculations.
 
-## Highlights
+## Key Features
 
-- Responsive landing page for fuel, lubricant, and energy services
-- Dedicated pages for services, about, locations, bulk fuel, FAQs, contact, and privacy policy
-- Clean navigation and polished presentation for both desktop and mobile users
-- Modern frontend stack with Tailwind CSS and reusable UI components
+- **Dynamic Fuel Price Ticker**: Real-time ticker for Diesel 50ppm, Unleaded Petrol E10, Industrial Fuel Oil, and LPG.
+- **Bulk Fuel & Savings Calculator**: Interactive estimator for commercial bulk fuel volumes and price discount structures.
+- **Instant Quote Modal**: Reusable quotation request dialog connected directly to sales dispatch.
+- **Station Locator**: Interactive search and amenity filters for service stations in Harare and Bulawayo.
+- **Fleet Card Management**: Fleet portal overview for corporate vehicle fuel control.
+- **FLO Energy Branding**: High-resolution brand assets from [https://floenergy.net](https://floenergy.net).
 
-## Tech stack
+## Tech Stack
 
-- Vite
-- React 18
-- TypeScript
-- Tailwind CSS
-- shadcn/ui styling primitives
-- React Router DOM
+- **Vite**
+- **React 18**
+- **TypeScript**
+- **Tailwind CSS**
+- **Lucide Icons**
+- **React Router DOM**
 
-## Getting started
+## Getting Started
 
 ### Prerequisites
-
-- Node.js 18 or later
-- npm 9 or later
+- Node.js 18 or higher
+- npm 9 or higher
 
 ### Installation
-
 ```bash
 git clone https://github.com/tonderaikawere/floenergyzw.git
 cd floenergyzw
@@ -34,34 +34,22 @@ npm install
 ```
 
 ### Development
-
 ```bash
 npm run dev
 ```
 
-Then open the local Vite URL shown in the terminal.
-
-### Production build
-
+### Production Build
 ```bash
 npm run build
 ```
 
-## Project structure
+## Contact & Direct Sales
 
-- src/pages — route-based content pages
-- src/components — shared layout, header, footer, and UI wrappers
-- src/lib — helper utilities
-- public — static assets
-
-## Deployment
-
-This project can be deployed to any static host that supports Vite builds, including Netlify, Vercel, Cloudflare Pages, or a simple Node-based web server.
-
-## Contact
-
-For business inquiries, visit the official site at [https://floenergy.net](https://floenergy.net) or use the contact page in this application.
+- **Official Web Domain**: [https://floenergy.net](https://floenergy.net)
+- **Sales Hotline 1**: +263 77 224 5578 (Adrian King)
+- **Sales Hotline 2**: +263 71 221 3338 (Nathan King)
+- **Email**: sales1@floenergy.net
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+MIT License.

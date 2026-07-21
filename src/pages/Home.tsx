@@ -17,36 +17,41 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+      {/* 3-Tier Induzy Header */}
       <Header />
+      
+      {/* Live Daily Fuel Rates Ticker */}
       <FuelPriceTicker />
 
-      {/* Induzy Hero Banner & Feature Cards */}
+      {/* Induzy Hero Banner & 3-Color Overlapping Feature Cards */}
       <InduzyHero />
 
-      {/* Induzy Welcome About Section */}
+      {/* Induzy About Us Section with 12+ Experience Badge */}
       <InduzyAboutSection />
 
-      {/* Fuel Volume & Savings Calculator Section */}
-      <section className="py-12 px-4 max-w-7xl mx-auto w-full">
+      {/* Induzy 6-Column Industrial Services Grid */}
+      <InduzyServicesGrid />
+
+      {/* Bulk Fuel Volume & Savings Calculator */}
+      <section className="py-16 px-4 max-w-7xl mx-auto w-full">
         <FuelCalculator />
       </section>
 
-      {/* Induzy 6-Column Services Showcase */}
-      <InduzyServicesGrid />
-
-      {/* Induzy Why Choose Us Quality Standards */}
+      {/* Induzy Why Choose Us Counter & Standards Section */}
       <InduzyWhyChooseUs />
 
-      {/* Induzy Facilities & Terminals Gallery */}
+      {/* Induzy Infrastructure & Terminal Gallery */}
       <InduzyGallery />
 
-      {/* Commercial Client Reviews */}
+      {/* Commercial Partner Reviews */}
       <Testimonials />
 
-      {/* Induzy Call To Action Dispatch Strip */}
+      {/* Induzy Full-Width Yellow CTA Strip */}
       <InduzyCallToAction />
 
+      {/* Induzy 4-Column Dark Footer */}
       <Footer />
+      
       <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
     </div>
   );

@@ -5,6 +5,7 @@ import FuelPriceTicker from '../components/FuelPriceTicker';
 import QuoteModal from '../components/QuoteModal';
 import ZeraBadge from '../components/ZeraBadge';
 import DensityCalculator from '../components/DensityCalculator';
+import DeliveryTracker from '../components/DeliveryTracker';
 import { Truck, Fuel, ShieldCheck, CheckCircle2, ArrowRight, Shield, Award, Clock } from 'lucide-react';
 
 export const BulkFuel: React.FC = () => {
@@ -103,6 +104,8 @@ export const BulkFuel: React.FC = () => {
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
+
+        <DeliveryTracker />
 
         <DensityCalculator />
 

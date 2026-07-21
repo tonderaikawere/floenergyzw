@@ -37,3 +37,10 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #5e17eb;
 }
+
+/* Print Styles */
+@media print {
+  header, footer, .floating-call-btn {
+    display: none !important;
+  }
+}

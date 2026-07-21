@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FuelPriceTicker from '../components/FuelPriceTicker';
+import EnvironmentalPolicy from '../components/EnvironmentalPolicy';
 import { ShieldCheck, Award, Users, Fuel, Truck, CheckCircle2, TrendingUp, Shield } from 'lucide-react';
 
 export const About: React.FC = () => {
@@ -85,6 +86,8 @@ export const About: React.FC = () => {
               </div>
             ))}
           </div>
+
+          <EnvironmentalPolicy />
         </div>
       </section>
 

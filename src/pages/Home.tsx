@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import FuelPriceTicker from '../components/FuelPriceTicker';
 import FuelCalculator from '../components/FuelCalculator';
 import QuoteModal from '../components/QuoteModal';
+import Testimonials from '../components/Testimonials';
 import { Link } from 'react-router-dom';
 import { useCountUp } from '../hooks/useCountUp';
 import {
@@ -316,6 +317,7 @@ const Home = () => {
         </div>
       </section>
 
+      <Testimonials />
       <Footer />
       <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
     </div>

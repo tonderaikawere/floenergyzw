@@ -27,13 +27,13 @@ const Header = () => {
       <div className="bg-flo-dark text-white text-xs py-2 px-4 border-b border-white/10 hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-6">
-            <span className="flex items-center space-x-1 text-flo-gold font-medium">
+            <span className="flex items-center space-x-1 text-flo-gold font-bold uppercase tracking-wider">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>ZERA Certified Petroleum Supplier</span>
+              <span>ZERA Certified Wholesaler & Retailer</span>
             </span>
             <span className="flex items-center space-x-1 text-gray-300">
               <Clock className="w-3.5 h-3.5 text-flo-gold" />
-              <span>24/7 Bulk Fuel Logistics Dispatch</span>
+              <span>Harare & Bulawayo Terminals</span>
             </span>
           </div>
 

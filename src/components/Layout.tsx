@@ -1,19 +1,15 @@
-
-import Header from './Header';
-import Footer from './Footer';
+import React from 'react';
+import FloatingCallButton from './FloatingCallButton';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow">
-        {children}
-      </main>
-      <Footer />
+    <div className="relative min-h-screen bg-gray-50 flex flex-col font-sans">
+      {children}
+      <FloatingCallButton />
     </div>
   );
 };

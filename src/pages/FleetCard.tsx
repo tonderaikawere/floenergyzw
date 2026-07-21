@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FuelPriceTicker from '../components/FuelPriceTicker';
 import QuoteModal from '../components/QuoteModal';
+import FleetCardWidget from '../components/FleetCardWidget';
 import { CreditCard, Shield, BarChart3, Lock, CheckCircle, Truck, UserCheck, ArrowRight } from 'lucide-react';
 
 export const FleetCard: React.FC = () => {
@@ -104,6 +105,8 @@ export const FleetCard: React.FC = () => {
             );
           })}
         </div>
+
+        <FleetCardWidget />
       </section>
 
       <Footer />

@@ -36,13 +36,13 @@
 
     --radius: 0.75rem;
 
-    /* FLO Brand HSL Tokens */
-    --flo-purple: 275 78% 21%;
-    --flo-purple-light: 268 85% 45%;
-    --flo-purple-subtle: 268 85% 94%;
-    --flo-gold: 43 96% 52%;
+    /* Induzy Theme HSL Tokens */
+    --flo-purple: 220 23% 16%;
+    --flo-purple-light: 220 23% 30%;
+    --flo-purple-subtle: 220 23% 94%;
+    --flo-gold: 42 100% 50%;
     --flo-emerald: 160 84% 39%;
-    --flo-dark: 222 47% 11%;
+    --flo-dark: 220 27% 10%;
   }
 }
 

@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import FuelPriceTicker from '../components/FuelPriceTicker';
 import { MapPin, Phone, Clock, Search, ShieldCheck, Fuel, Car, Coffee, CheckCircle2, Navigation } from 'lucide-react';
 import { getStationMapUrl } from '../lib/maps';
+import StationFilterTabs from '../components/StationFilterTabs';
 
 interface Station {
   id: string;
@@ -19,6 +20,7 @@ interface Station {
 export const Locations: React.FC = () => {
   const [search, setSearch] = useState('');
   const [selectedCity, setSelectedCity] = useState('All');
+  const [selectedAmenity, setSelectedAmenity] = useState('All');
 
   const stations: Station[] = [
     {
@@ -55,8 +57,9 @@ export const Locations: React.FC = () => {
 
   const filteredStations = stations.filter((st) => {
     const matchesCity = selectedCity === 'All' || st.city === selectedCity;
+    const matchesAmenity = selectedAmenity === 'All' || st.amenities.some((a) => a.toLowerCase().includes(selectedAmenity.toLowerCase()));
     const matchesSearch = st.name.toLowerCase().includes(search.toLowerCase()) || st.address.toLowerCase().includes(search.toLowerCase());
-    return matchesCity && matchesSearch;
+    return matchesCity && matchesAmenity && matchesSearch;
   });
 
   return (
@@ -108,6 +111,8 @@ export const Locations: React.FC = () => {
             ))}
           </div>
         </div>
+
+        <StationFilterTabs selectedAmenity={selectedAmenity} onSelectAmenity={setSelectedAmenity} />
       </section>
 
       {/* Station Cards */}

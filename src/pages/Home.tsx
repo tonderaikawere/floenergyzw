@@ -1,421 +1,323 @@
+import { useState } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import FuelPriceTicker from '../components/FuelPriceTicker';
+import FuelCalculator from '../components/FuelCalculator';
+import QuoteModal from '../components/QuoteModal';
+import { Link } from 'react-router-dom';
+import { useCountUp } from '../hooks/useCountUp';
+import {
+  Fuel,
+  Truck,
+  ShieldCheck,
+  Award,
+  MapPin,
+  Clock,
+  CheckCircle2,
+  ArrowRight,
+  ChevronRight,
+  TrendingUp,
+  Droplet,
+  Flame,
+  CreditCard,
+  Building2,
+  PhoneCall
+} from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { useCountUp } from '@/hooks/useCountUp';
-import { Smartphone, Users, Award, Zap, Leaf, Shield, ChevronDown } from 'lucide-react';
-
-const CounterCard = ({ end, label, suffix = "" }: { end: number; label: string; suffix?: string }) => {
+const CounterCard = ({ end, label, suffix = '' }: { end: number; label: string; suffix?: string }) => {
   const { count, elementRef } = useCountUp({ end });
-  
-  return (
-    <div ref={elementRef} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-        {count}{suffix}
-      </div>
-      <div className="text-lg text-white/90">{label}</div>
-    </div>
-  );
-};
-
-const ScrollIcon = () => {
-  const scrollToNext = () => {
-    const nextSection = document.querySelector('#about-section');
-    nextSection?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
-    <div 
-      onClick={scrollToNext}
-      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce"
-    >
-      <div className="w-6 h-10 border-2 border-white/70 rounded-full flex justify-center">
-        <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+    <div ref={elementRef} className="text-center p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15">
+      <div className="text-4xl md:text-5xl font-black text-flo-gold mb-2">
+        {count}
+        {suffix}
       </div>
-      <ChevronDown className="w-6 h-6 text-white/70 mx-auto mt-2" />
+      <div className="text-sm font-semibold text-white/90 uppercase tracking-wider">{label}</div>
     </div>
   );
 };
 
 const Home = () => {
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<'retail' | 'bulk' | 'fleet' | 'lubricants'>('retail');
+
+  const servicesData = {
+    retail: {
+      title: 'Modern Retail Service Stations',
+      description: 'Clean, high-flow pumps supplying ZERA certified Diesel 50ppm, Unleaded Petrol E10, and cylinder LPG exchange.',
+      points: ['24/7 Service Station Operations', 'Calibrated High-Speed Pumps', 'Well-Stocked Convenience Marts', 'Water-Free Fuel Quality Guarantee'],
+      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg',
+    },
+    bulk: {
+      title: 'Commercial Bulk Fuel Supply',
+      description: 'Direct tanker delivery to mining sites, agricultural farms, commercial fleets, and industrial plants across Zimbabwe.',
+      points: ['Dedicated Fuel Tankers (10,000L - 40,000L)', 'Instant Delivery Scheduling', 'Laboratory Water & Purity Certification', 'Custom Commercial Pricing Contracts'],
+      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo2.jpg',
+    },
+    fleet: {
+      title: 'Fleet Fuel Card Management',
+      description: 'Zero-cash cashless cards and RFID key tags with PIN protection, automated odometer entry, and daily liter limits.',
+      points: ['Driver PIN & Odometer Fraud Protection', 'Automated Transaction Reporting', 'Nationwide Acceptance', 'Customized Vehicle Spending Caps'],
+      image: 'https://floenergy.net/wp-content/uploads/2018/05/Petrol.jpg',
+    },
+    lubricants: {
+      title: 'Heavy Duty Industrial Lubricants',
+      description: 'Premium engine oils, gear lubricants, hydraulic fluids, and greases engineered for harsh African terrain.',
+      points: ['Heavy Machinery Engine Oils', 'High-Temp Industrial Greases', 'Transmission & Hydraulic Fluids', 'Technical Lubrication Support'],
+      image: 'https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg',
+    },
+  };
+
   return (
-    <div className="min-h-screen">
-      {/* Enhanced Hero Section */}
-      <section className="relative h-screen md:h-[50vh] lg:h-screen overflow-hidden">
-        {/* Background with Parallax Effect */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
+    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+      <Header />
+      <FuelPriceTicker />
+
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Dark Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transform scale-105 transition duration-1000"
           style={{
-            backgroundImage: "url('https://floenergy.net/wp-content/uploads/2018/05/Petrol.jpg')"
+            backgroundImage: "url('https://floenergy.net/wp-content/uploads/2018/05/Petrol.jpg')",
           }}
         />
-        
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/90" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/30" />
-        
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/3 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute inset-0 bg-gradient-to-r from-flo-dark/95 via-flo-purple/90 to-flo-dark/95" />
+
+        {/* Floating Ambient Circles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-10 w-96 h-96 bg-flo-gold/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-flo-purple-light/20 rounded-full blur-3xl" />
         </div>
-        
-        {/* Hero Content */}
-        <div className="relative h-full flex items-center justify-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white w-full">
-            {/* Main Logo/Title with Animation */}
-            <div className="mb-8 animate-fade-in">
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-4 tracking-wider">
-                <span className="inline-block transform hover:scale-110 transition-transform duration-300">F</span>
-                <span className="inline-block transform hover:scale-110 transition-transform duration-300 delay-100">L</span>
-                <span className="inline-block transform hover:scale-110 transition-transform duration-300 delay-200">O</span>
-              </h1>
-              <div className="w-24 h-1 bg-white mx-auto mb-6 animate-scale-in" />
-            </div>
-            
-            {/* Tagline with Typing Effect */}
-            <div className="mb-12 animate-fade-in delay-300">
-              <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-4 tracking-wide">
-                Energy for <span className="font-bold flo-text-gradient bg-white bg-clip-text text-transparent">growth</span>
-              </p>
-              <p className="text-lg sm:text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
-                Powering Zimbabwe's future with quality fuel solutions and exceptional service
-              </p>
-            </div>
-            
-            {/* CTA Buttons with Enhanced Styling */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in delay-500">
-              <Button 
-                size="lg" 
-                className="group bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-semibold w-full sm:w-auto transform hover:scale-105 transition-all duration-300 shadow-2xl"
-              >
-                <span className="flex items-center gap-2">
-                  Find a station near you
-                  <div className="w-2 h-2 bg-primary rounded-full group-hover:animate-ping" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white w-full z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                <ShieldCheck className="w-4 h-4 text-flo-gold" />
+                <span className="text-xs font-extrabold uppercase tracking-widest text-flo-gold">
+                  ZERA Certified Petroleum & Energy Partner
                 </span>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="group border-2 border-white text-black hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold w-full sm:w-auto transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
-              >
-                <Smartphone className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-                Download FLO Orders App
-              </Button>
-            </div>
-            
-            {/* Stats Preview */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto animate-fade-in delay-700">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold mb-1">70+</div>
-                <div className="text-sm opacity-80">Years Experience</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold mb-1">50+</div>
-                <div className="text-sm opacity-80">Locations</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold mb-1">10K+</div>
-                <div className="text-sm opacity-80">Customers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold mb-1">99%</div>
-                <div className="text-sm opacity-80">Satisfaction</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Scroll Indicator */}
-        <ScrollIcon />
-      </section>
 
-      {/* About Section */}
-      <section id="about-section" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                About FLO Energy
-              </h2>
-              <div className="space-y-4 text-gray-700">
-                <p className="text-base md:text-lg">
-                  "FLO has a dedicated passion for people and aspires to make every person feel valued for their contribution. This focus on every individual reaching their potential enhances loyalty and dedication within FLO."
-                </p>
-                <p className="text-base md:text-lg">
-                  Our progress and sustainable growth in the energy sector go hand in hand with our desire and responsibility to consciously conserve and preserve our environment.
-                </p>
-                <p className="text-base md:text-lg">
-                  Approachable leadership encourages wisdom and innovation to the forefront which translates to prosperity for all. Hard work ethic forms the FLO cornerstone and within a culture of loyalty, dignity and integrity we continue to elevate FLO in the competitive energy sector.
-                </p>
-                <p className="font-semibold text-primary text-lg md:text-xl">
-                  This Zimbabwean Company is open for business
-                </p>
-              </div>
-            </div>
-            <div className="relative order-1 lg:order-2">
-              <img
-                src="https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg"
-                alt="FLO Energy Station"
-                className="rounded-lg shadow-lg w-full h-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight">
+                Energy for <span className="flo-gold-text-gradient">Growth</span> across Zimbabwe
+              </h1>
 
-      {/* Services Preview */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              FLO Services
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-              Quality products and services that are tailor-made for you. Whether you require one litre or hundreds of thousands of litres, we will create a turn key solution.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-semibold mb-4 text-primary">Fuel Supply</h3>
-                <p className="text-gray-700">
-                  Quality fuel products delivered to your doorstep with minimum orders of 2000 litres.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-semibold mb-4 text-primary">Lubrication Products</h3>
-                <p className="text-gray-700">
-                  High-grade lubrication products through our partnership with Scope Lubricants.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-semibold mb-4 text-primary">Customer Service</h3>
-                <p className="text-gray-700">
-                  Trained staff providing reliable service with customer satisfaction as our priority.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* FLO Orders App Section */}
-      <section className="py-16 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center mb-6">
-                <Smartphone className="h-12 w-12 mr-4" />
-                <h2 className="text-3xl md:text-4xl font-bold">
-                  FLO Orders App
-                </h2>
-              </div>
-              <p className="text-lg md:text-xl mb-6 opacity-90">
-                Order fuel on-the-go with our convenient mobile application. Track deliveries, 
-                manage orders, and access exclusive deals right from your smartphone.
+              <p className="text-base sm:text-xl text-gray-200 max-w-2xl leading-relaxed font-normal">
+                FLO Energy Zimbabwe delivers premium grade Diesel 50ppm, Unleaded Petrol, Heavy Industrial Fuels, and Bulk Tanker Logistics with guaranteed purity and 24/7 reliability.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" variant="outline" className="bg-white text-primary hover:bg-gray-100">
-                  Download for iOS
-                </Button>
-                <Button size="lg" variant="outline" className="bg-white text-primary hover:bg-gray-100">
-                  Download for Android
-                </Button>
+
+              {/* CTAs */}
+              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                <button
+                  onClick={() => setIsQuoteOpen(true)}
+                  className="w-full sm:w-auto flo-gold-gradient text-flo-dark font-extrabold text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl hover:brightness-110 transition flex items-center justify-center space-x-2"
+                >
+                  <Fuel className="w-5 h-5 text-flo-dark" />
+                  <span>Request Bulk Fuel Quote</span>
+                </button>
+
+                <Link
+                  to="/locations"
+                  className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-bold text-sm px-8 py-4 rounded-xl border border-white/30 backdrop-blur-md transition flex items-center justify-center space-x-2"
+                >
+                  <MapPin className="w-5 h-5 text-flo-gold" />
+                  <span>Locate Service Station</span>
+                </Link>
+              </div>
+
+              {/* Stats Counters */}
+              <div className="pt-8 grid grid-cols-3 gap-4 border-t border-white/10">
+                <CounterCard end={12} label="Years Active" suffix="+" />
+                <CounterCard end={50} label="Bulk Tankers" suffix="+" />
+                <CounterCard end={100} label="Clean Fuel %" suffix="%" />
               </div>
             </div>
-            <div className="text-center">
-              <div className="bg-white/10 rounded-lg p-8 backdrop-blur-sm">
-                <Smartphone className="h-32 w-32 mx-auto mb-4 opacity-80" />
-                <p className="text-lg">Experience the future of fuel ordering</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Why Choose FLO Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose FLO Energy?
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-              Discover what makes FLO Energy the preferred choice for fuel and energy solutions across Zimbabwe
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <Award className="h-10 w-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Quality Assurance</h3>
-              <p className="text-gray-700">Premium quality fuel products that meet international standards</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <Zap className="h-10 w-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Fast Service</h3>
-              <p className="text-gray-700">Quick and efficient fuel delivery with minimal wait times</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <Leaf className="h-10 w-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Environmental Care</h3>
-              <p className="text-gray-700">Committed to environmental protection and sustainable practices</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-10 w-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Safety First</h3>
-              <p className="text-gray-700">Strict safety protocols and compliance with industry standards</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <Users className="h-10 w-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Expert Team</h3>
-              <p className="text-gray-700">Experienced professionals trained to provide exceptional service</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <Smartphone className="h-10 w-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Digital Innovation</h3>
-              <p className="text-gray-700">Modern technology solutions including our FLO Orders mobile app</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section with Animated Counters */}
-      <section className="py-16 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Track Record
-            </h2>
-            <p className="text-lg md:text-xl opacity-90">
-              Decades of experience serving Zimbabwe's energy needs
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <CounterCard end={70} label="Years of Experience" suffix="+" />
-            <CounterCard end={50} label="Service Locations" suffix="+" />
-            <CounterCard end={10000} label="Happy Customers" suffix="+" />
-            <CounterCard end={99} label="Customer Satisfaction" suffix="%" />
-          </div>
-        </div>
-      </section>
-
-      {/* Customer Testimonials Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Customers Say
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-              Hear from businesses and individuals who trust FLO Energy for their fuel needs
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
-                    JM
+            {/* Right Card Widget */}
+            <div className="lg:col-span-5">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-3xl space-y-6 text-white shadow-2xl">
+                <div className="flex items-center space-x-3 border-b border-white/15 pb-4">
+                  <div className="bg-flo-gold p-3 rounded-xl text-flo-dark">
+                    <Truck className="w-6 h-6" />
                   </div>
-                  <div className="ml-4">
-                    <h4 className="font-semibold">John Mukamuri</h4>
-                    <p className="text-sm text-gray-600">Transport Manager</p>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">Commercial Fuel Order</h3>
+                    <p className="text-xs text-white/70">Fast On-Site Tanker Dispatch</p>
                   </div>
                 </div>
-                <p className="text-gray-700 italic">
-                  "FLO Energy has been our trusted fuel supplier for over 5 years. Their reliability and quality service keep our fleet running smoothly."
-                </p>
-              </CardContent>
-            </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
-                    SM
+                <div className="space-y-4 text-sm">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-flo-gold shrink-0 mt-0.5" />
+                    <span><strong>10,000L - 40,000L Tankers</strong> dispatched nationwide.</span>
                   </div>
-                  <div className="ml-4">
-                    <h4 className="font-semibold">Sarah Moyo</h4>
-                    <p className="text-sm text-gray-600">Business Owner</p>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-flo-gold shrink-0 mt-0.5" />
+                    <span><strong>Water-Free Filtration Certificate</strong> with every load.</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-flo-gold shrink-0 mt-0.5" />
+                    <span><strong>24/7 Hotline:</strong> Speak directly with sales dispatch.</span>
                   </div>
                 </div>
-                <p className="text-gray-700 italic">
-                  "The FLO Orders app makes fuel ordering so convenient. Quick delivery and excellent customer service every time."
-                </p>
-              </CardContent>
-            </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
-                    TC
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="font-semibold">Tendai Chigwedere</h4>
-                    <p className="text-sm text-gray-600">Logistics Coordinator</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 italic">
-                  "Professional service and competitive prices. FLO Energy understands our business needs and delivers consistently."
-                </p>
-              </CardContent>
-            </Card>
+                <button
+                  onClick={() => setIsQuoteOpen(true)}
+                  className="w-full py-3.5 bg-white text-flo-purple hover:bg-flo-gold hover:text-flo-dark font-extrabold text-sm rounded-xl transition shadow-lg flex items-center justify-center space-x-2"
+                >
+                  <span>Get Instant Pricing</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section 
-        className="py-16 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://floenergy.net/wp-content/uploads/2020/06/Flo2.jpg')"
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Partner with FLO Energy?
+      {/* Interactive Fuel Savings Calculator Section */}
+      <section className="py-16 px-4 max-w-7xl mx-auto w-full -mt-12 relative z-20">
+        <FuelCalculator />
+      </section>
+
+      {/* Services Showcase */}
+      <section className="py-16 px-4 max-w-7xl mx-auto w-full">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-bold text-flo-purple uppercase tracking-widest bg-flo-purple-subtle px-3 py-1 rounded-full">
+            Our Core Offerings
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-flo-purple mt-3">
+            Comprehensive Energy & Petroleum Services
           </h2>
-          <p className="text-lg md:text-xl mb-8">
-            Contact us today for all your fuel and energy needs
+          <p className="text-gray-600 text-sm mt-2">
+            Engineered to support corporate fleets, agricultural estates, mining operations, and daily motorist refueling.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="bg-white text-primary hover:bg-gray-100">
-              Get in Touch
-            </Button>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
-              Download FLO Orders
-            </Button>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {(['retail', 'bulk', 'fleet', 'lubricants'] as const).map((tabKey) => (
+            <button
+              key={tabKey}
+              onClick={() => setActiveTab(tabKey)}
+              className={`px-5 py-3 rounded-xl font-bold text-sm capitalize transition ${
+                activeTab === tabKey
+                  ? 'bg-flo-purple text-white shadow-md'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+              }`}
+            >
+              {tabKey} Service
+            </button>
+          ))}
+        </div>
+
+        {/* Selected Service Card */}
+        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-100 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              {servicesData[activeTab].title}
+            </h3>
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+              {servicesData[activeTab].description}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {servicesData[activeTab].points.map((pt, idx) => (
+                <div key={idx} className="flex items-center space-x-2 text-xs sm:text-sm font-semibold text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-100">
+                  <CheckCircle2 className="w-4 h-4 text-flo-emerald shrink-0" />
+                  <span>{pt}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-2">
+              <Link
+                to="/services"
+                className="inline-flex items-center space-x-2 text-flo-purple hover:text-flo-purple-light font-bold text-sm group"
+              >
+                <span>Learn full details on our services</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <img
+              src={servicesData[activeTab].image}
+              alt={servicesData[activeTab].title}
+              className="rounded-2xl shadow-md object-cover h-72 w-full border border-gray-100"
+            />
           </div>
         </div>
       </section>
+
+      {/* Station Network Preview Section */}
+      <section className="py-16 bg-flo-dark text-white px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-white/10 pb-6">
+            <div>
+              <span className="text-xs font-bold text-flo-gold uppercase tracking-widest">Station Finder</span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-1">Our Strategic Service Station Locations</h2>
+            </div>
+            <Link
+              to="/locations"
+              className="mt-4 md:mt-0 flo-gold-gradient text-flo-dark font-extrabold text-xs uppercase px-5 py-3 rounded-xl flex items-center space-x-2"
+            >
+              <span>View All Station Maps</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4 hover:border-flo-gold/50 transition">
+              <div className="flex justify-between items-center">
+                <span className="text-xs font-bold text-flo-gold bg-flo-gold/10 px-2.5 py-1 rounded-full">Harare</span>
+                <span className="text-xs text-emerald-400 font-medium">Open 24/7</span>
+              </div>
+              <h4 className="text-xl font-bold text-white">Donnybrook Service Station</h4>
+              <p className="text-gray-300 text-xs">Arcturus Road, Donnybrook, Harare</p>
+              <div className="text-xs text-gray-400 space-y-1">
+                <p>• High-Speed Diesel 50ppm</p>
+                <p>• Unleaded Petrol E10</p>
+                <p>• LPG Cylinder Swap</p>
+              </div>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4 hover:border-flo-gold/50 transition">
+              <div className="flex justify-between items-center">
+                <span className="text-xs font-bold text-flo-gold bg-flo-gold/10 px-2.5 py-1 rounded-full">Bulawayo</span>
+                <span className="text-xs text-emerald-400 font-medium">Open 24/7</span>
+              </div>
+              <h4 className="text-xl font-bold text-white">Burnside Station</h4>
+              <p className="text-gray-300 text-xs">Burnside Road, Bulawayo</p>
+              <div className="text-xs text-gray-400 space-y-1">
+                <p>• Bulk Delivery Terminal</p>
+                <p>• Commercial Fleet Cards</p>
+                <p>• Lubricants Bay</p>
+              </div>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4 hover:border-flo-gold/50 transition">
+              <div className="flex justify-between items-center">
+                <span className="text-xs font-bold text-flo-gold bg-flo-gold/10 px-2.5 py-1 rounded-full">Bulawayo</span>
+                <span className="text-xs text-emerald-400 font-medium">Open 24/7</span>
+              </div>
+              <h4 className="text-xl font-bold text-white">Ironbridge Station</h4>
+              <p className="text-gray-300 text-xs">Ironbridge Road, Bulawayo</p>
+              <div className="text-xs text-gray-400 space-y-1">
+                <p>• Heavy Haulage Pumps</p>
+                <p>• Clean Fuel Filtration</p>
+                <p>• Fast-Track Card Lanes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+      <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
     </div>
   );
 };

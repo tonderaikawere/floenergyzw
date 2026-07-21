@@ -114,8 +114,8 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
-          <p>© {new Date().getFullYear()} FLO Energy Zimbabwe. All Rights Reserved.</p>
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 border-t border-white/5 mt-4">
+          <p>© {new Date().getFullYear()} FLO Energy Zimbabwe (Ibhalabhala Pvt Ltd). Registered Petroleum Retailer & Wholesaler under ZERA Regulation.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
             <Link to="/faqs" className="hover:text-white transition">FAQs</Link>

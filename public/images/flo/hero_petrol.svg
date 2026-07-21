@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12161f" />
+      <stop offset="50%" stop-color="#1f2532" />
+      <stop offset="100%" stop-color="#0a0c12" />
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffb400" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ffc72c" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="600" fill="url(#bgGrad)" />
+  
+  <!-- Industrial Grid & Geometric Lines -->
+  <path d="M0 450 L1200 450" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2" />
+  <path d="M0 300 L1200 300" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2" />
+  <path d="M0 150 L1200 150" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2" />
+  <path d="M300 0 L300 600" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2" />
+  <path d="M600 0 L600 600" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2" />
+  <path d="M900 0 L900 600" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2" />
+  
+  <!-- Industrial Tanker Silhouette -->
+  <g transform="translate(650, 220)" opacity="0.25">
+    <rect x="0" y="80" width="450" height="180" rx="30" fill="url(#goldGlow)" />
+    <circle cx="100" cy="280" r="40" fill="#ffb400" />
+    <circle cx="240" cy="280" r="40" fill="#ffb400" />
+    <circle cx="380" cy="280" r="40" fill="#ffb400" />
+    <path d="M450 140 L540 140 L570 200 L570 260 L450 260 Z" fill="#ffb400" />
+  </g>
+
+  <!-- Ambient Glow Overlay -->
+  <circle cx="950" cy="150" r="250" fill="#ffb400" opacity="0.08" filter="blur(50px)" />
+</svg>

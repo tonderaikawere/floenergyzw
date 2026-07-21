@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 90" width="350" height="90">
+  <defs>
+    <linearGradient id="floGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFC72C" />
+      <stop offset="100%" stop-color="#FFB400" />
+    </linearGradient>
+    <linearGradient id="floPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D0B5E" />
+      <stop offset="100%" stop-color="#1F2532" />
+    </linearGradient>
+  </defs>
+
+  <!-- Flame / Drop Emblem -->
+  <g transform="translate(10, 5)">
+    <path d="M40 8 C25 35 15 50 15 62 A25 25 0 0 0 65 62 C65 50 55 35 40 8 Z" fill="url(#floGold)" />
+    <path d="M40 25 C32 40 25 50 25 58 A15 15 0 0 0 55 58 C55 50 48 40 40 25 Z" fill="url(#floPurple)" />
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="85" y="48" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="42" fill="#3D0B5E" letter-spacing="2">FLO</text>
+  <text x="85" y="70" font-family="'Montserrat', sans-serif" font-weight="800" font-size="14" fill="#FFB400" letter-spacing="4">PETROLEUM ZIMBABWE</text>
+</svg>

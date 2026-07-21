@@ -11,7 +11,8 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="bg-white p-3 rounded-none inline-block shadow">
               <img
-                src="https://floenergy.net/wp-content/uploads/2018/05/Flo-1.png"
+                src="/images/flo/logo.svg"
+                onError={(e) => { (e.target as HTMLImageElement).src = "https://floenergy.net/wp-content/uploads/2018/05/Flo-1.png"; }}
                 alt="FLO Energy Zimbabwe"
                 className="h-12 w-auto object-contain"
               />

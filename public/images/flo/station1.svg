@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#1f2532" />
+  <rect x="0" y="380" width="800" height="120" fill="#12161f" />
+  
+  <!-- Canopy Roof -->
+  <path d="M50 120 L750 120 L720 170 L80 170 Z" fill="#ffb400" />
+  <rect x="80" y="170" width="640" height="20" fill="#3d0b5e" />
+  <text x="400" y="155" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#12161f" text-anchor="middle" letter-spacing="4">FLO ENERGY STATION</text>
+  
+  <!-- Pillars -->
+  <rect x="180" y="190" width="30" height="190" fill="#ffffff" opacity="0.9" />
+  <rect x="590" y="190" width="30" height="190" fill="#ffffff" opacity="0.9" />
+  
+  <!-- Fuel Pumps -->
+  <rect x="260" y="260" width="80" height="120" rx="10" fill="#3d0b5e" stroke="#ffb400" stroke-width="3" />
+  <rect x="460" y="260" width="80" height="120" rx="10" fill="#3d0b5e" stroke="#ffb400" stroke-width="3" />
+  <circle cx="300" cy="300" r="15" fill="#ffb400" />
+  <circle cx="500" cy="300" r="15" fill="#ffb400" />
+</svg>

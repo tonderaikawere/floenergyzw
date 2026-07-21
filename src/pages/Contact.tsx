@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FuelPriceTicker from '../components/FuelPriceTicker';
+import EmergencyDispatch from '../components/EmergencyDispatch';
 import { Phone, Mail, MapPin, Send, CheckCircle2, Clock, ShieldCheck, Fuel } from 'lucide-react';
 
 export const Contact: React.FC = () => {
@@ -133,6 +134,10 @@ export const Contact: React.FC = () => {
               )}
             </div>
           </div>
+        </div>
+
+        <div className="mt-12">
+          <EmergencyDispatch />
         </div>
       </section>
 

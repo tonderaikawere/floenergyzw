@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const AluwindNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   const navigation = [
     { name: 'ENGINEERING', href: '/about' },
@@ -16,7 +28,7 @@ const AluwindNavbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 font-sans">
+    <nav className={`bg-white border-b border-gray-100 sticky top-0 z-50 font-sans transition-shadow duration-200 ${scrolled ? 'shadow-md' : 'shadow-none'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -31,8 +43,10 @@ const AluwindNavbar = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-[11px] font-bold tracking-widest hover:text-aluwind-green transition-colors duration-200 ${
-                  isActive(item.href) ? 'text-aluwind-green' : 'text-gray-600'
+                className={`text-[11px] font-bold tracking-widest hover:text-aluwind-green transition-colors duration-200 border-b-2 pb-1 ${
+                  isActive(item.href)
+                    ? 'text-aluwind-green border-aluwind-green'
+                    : 'text-gray-600 border-transparent'
                 }`}
               >
                 {item.name}
@@ -44,7 +58,7 @@ const AluwindNavbar = () => {
           <div className="hidden md:block">
             <Link
               to="/contact"
-              className="bg-aluwind-green hover:bg-aluwind-green/90 text-white font-bold text-[11px] px-6 py-3 tracking-widest transition-colors duration-200"
+              className="bg-aluwind-green hover:bg-aluwind-green/90 text-white font-bold text-[11px] px-6 py-3 tracking-widest transition-colors duration-200 aluwind-btn"
             >
               CONTACT US
             </Link>
@@ -65,12 +79,12 @@ const AluwindNavbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
+        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-1 shadow-lg">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
-              className={`block text-[11px] font-bold tracking-widest py-2 hover:text-aluwind-green transition-colors ${
+              className={`block text-[11px] font-bold tracking-widest py-3 border-b border-gray-100 last:border-0 hover:text-aluwind-green transition-colors ${
                 isActive(item.href) ? 'text-aluwind-green' : 'text-gray-600'
               }`}
               onClick={() => setIsMenuOpen(false)}
@@ -78,13 +92,15 @@ const AluwindNavbar = () => {
               {item.name}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            className="block text-center bg-aluwind-green text-white font-bold text-[11px] py-3 tracking-widest hover:bg-aluwind-green/90 transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            CONTACT US
-          </Link>
+          <div className="pt-3">
+            <Link
+              to="/contact"
+              className="block text-center bg-aluwind-green text-white font-bold text-[11px] py-3.5 tracking-widest hover:bg-aluwind-green/90 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              CONTACT US
+            </Link>
+          </div>
         </div>
       )}
     </nav>
@@ -92,3 +108,4 @@ const AluwindNavbar = () => {
 };
 
 export default AluwindNavbar;
+

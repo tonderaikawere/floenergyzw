@@ -7,7 +7,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="relative min-h-screen bg-gray-50 flex flex-col font-sans">
+    <div className="relative min-h-screen bg-white flex flex-col font-sans">
       {children}
       <FloatingCallButton />
     </div>

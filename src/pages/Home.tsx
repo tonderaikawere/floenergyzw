@@ -1,46 +1,35 @@
-import AluwindHeaderTop from '../components/AluwindHeaderTop';
-import AluwindNavbar from '../components/AluwindNavbar';
+import React from 'react';
 import AluwindHero from '../components/AluwindHero';
-import AluwindHeroCards from '../components/AluwindHeroCards';
 import AluwindProductionSection from '../components/AluwindProductionSection';
 import AluwindPartnerSection from '../components/AluwindPartnerSection';
-import AluwindRobustSection from '../components/AluwindRobustSection';
-import AluwindOptimizedSection from '../components/AluwindOptimizedSection';
-import AluwindContactSection from '../components/AluwindContactSection';
-import Footer from '../components/Footer';
+import AluwindSpecsSection from '../components/AluwindSpecsSection';
+import AluwindSupportBanner from '../components/AluwindSupportBanner';
+import AluwindZeraBadge from '../components/AluwindZeraBadge';
+import AluwindDensityCalculator from '../components/AluwindDensityCalculator';
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white flex flex-col font-sans">
-      {/* Header Top Bar */}
-      <AluwindHeaderTop />
-      
-      {/* Navigation Bar */}
-      <AluwindNavbar />
-
-      {/* Hero Banner */}
+    <div className="font-sans">
+      {/* Hero Banner & 3 Cards */}
       <AluwindHero />
 
-      {/* Overlapping Info Cards */}
-      <AluwindHeroCards />
-
-      {/* Production Section */}
+      {/* Production & Quality Showcase (2 Columns) */}
       <AluwindProductionSection />
 
-      {/* Partner Section */}
+      {/* Experienced Partner Section (Dark Green with 3 Image Cards) */}
       <AluwindPartnerSection />
 
-      {/* Robust Section */}
-      <AluwindRobustSection />
+      {/* Robust Fuel Delivery Section */}
+      <AluwindSpecsSection />
 
-      {/* Optimized Banner */}
-      <AluwindOptimizedSection />
+      {/* Density & Temperature Correction Calculator */}
+      <div className="max-w-7xl mx-auto px-4 my-12">
+        <AluwindZeraBadge />
+        <AluwindDensityCalculator />
+      </div>
 
-      {/* Contact Section */}
-      <AluwindContactSection />
-
-      {/* Footer */}
-      <Footer />
+      {/* Support Banner */}
+      <AluwindSupportBanner />
     </div>
   );
 };

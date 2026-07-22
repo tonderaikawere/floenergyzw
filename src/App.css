@@ -1,22 +1,10 @@
-/* FLO Energy Zimbabwe App Global Styles */
+/* FLO Energy Zimbabwe - Aluwind Industrial Theme Styles */
 
 #root {
   width: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-}
-
-/* Page Transition Fade */
-.page-fade-enter {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-.page-fade-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms ease-out, transform 300ms ease-out;
 }
 
 /* Custom Scrollbar for Price Ticker & Cards */
@@ -26,16 +14,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #0f1f17;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3d0b5e;
-  border-radius: 4px;
+  background: #4caf50;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5e17eb;
+  background: #388e3c;
 }
 
 /* Print Styles */

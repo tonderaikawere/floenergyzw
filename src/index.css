@@ -38,13 +38,20 @@
 
     --radius: 0.75rem;
 
-    /* Induzy Theme HSL Tokens */
-    --flo-purple: 220 23% 16%;
-    --flo-purple-light: 220 23% 30%;
-    --flo-purple-subtle: 220 23% 94%;
-    --flo-gold: 42 100% 50%;
-    --flo-emerald: 160 84% 39%;
-    --flo-dark: 220 27% 10%;
+    /* Aluwind Industrial Green Theme HSL & Hex Tokens */
+    --flo-purple: 147 35% 9%;      /* #0f1f17 */
+    --flo-purple-light: 147 30% 15%;/* #162a1f */
+    --flo-purple-subtle: 135 30% 95%;/* #e8f5e9 */
+    --flo-gold: 122 39% 49%;        /* #4caf50 */
+    --flo-emerald: 122 39% 35%;     /* #2e7d32 */
+    --flo-dark: 144 33% 6%;         /* #0a140e */
+
+    --aluwind-dark: #0f1f17;
+    --aluwind-medium: #162a1f;
+    --aluwind-green: #4caf50;
+    --aluwind-green-dark: #2e7d32;
+    --aluwind-mint: #d4edda;
+    --aluwind-black: #0a140e;
   }
 }
 

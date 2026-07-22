@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
+import AluwindHeaderTop from '../components/AluwindHeaderTop';
+import AluwindNavbar from '../components/AluwindNavbar';
 import Footer from '../components/Footer';
-import FuelPriceTicker from '../components/FuelPriceTicker';
-import { MapPin, Phone, Clock, Search, ShieldCheck, Fuel, Car, Coffee, CheckCircle2, Navigation } from 'lucide-react';
+import { MapPin, Phone, Clock, Search, Navigation } from 'lucide-react';
 import { getStationMapUrl } from '../lib/maps';
 import StationFilterTabs from '../components/StationFilterTabs';
+import WindLeafIcon from '../components/WindLeafIcon';
 
 interface Station {
   id: string;
@@ -63,27 +64,27 @@ export const Locations: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header />
-      <FuelPriceTicker />
+    <div className="min-h-screen bg-white flex flex-col font-sans">
+      <AluwindHeaderTop />
+      <AluwindNavbar />
 
       {/* Header Banner */}
-      <section className="flo-hero-gradient text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-4">
-          <span className="bg-flo-gold text-flo-dark text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-flex items-center space-x-1">
-            <MapPin className="w-4 h-4" />
-            <span>FLO Retail & Terminal Network</span>
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black">Find a FLO Energy Station</h1>
-          <p className="text-gray-200 text-sm sm:text-base max-w-xl mx-auto">
+      <section className="relative bg-aluwind-dark text-white py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-0" />
+        <div className="max-w-7xl mx-auto text-center space-y-4 relative z-10">
+          <div className="flex justify-center mb-2">
+            <WindLeafIcon className="w-8 h-4 text-aluwind-green" />
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold">Find a FLO Energy Station</h1>
+          <p className="text-gray-300 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
             Locate FLO Energy service stations across Harare, Bulawayo, and major transit corridors in Zimbabwe.
           </p>
         </div>
       </section>
 
       {/* Search & Filter Bar */}
-      <section className="py-8 px-4 max-w-7xl mx-auto w-full">
-        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-md flex flex-col md:flex-row gap-4 justify-between items-center">
+      <section className="py-8 px-6 max-w-7xl mx-auto w-full">
+        <div className="bg-gray-50 p-6 border border-gray-100 shadow-sm flex flex-col md:flex-row gap-4 justify-between items-center">
           <div className="relative w-full md:w-96">
             <Search className="w-5 h-5 text-gray-400 absolute left-3.5 top-3.5" />
             <input
@@ -91,7 +92,7 @@ export const Locations: React.FC = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search station or address..."
-              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-flo-purple focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border border-gray-200 bg-white rounded-none text-xs focus:ring-1 focus:ring-aluwind-green focus:border-transparent outline-none"
             />
           </div>
 
@@ -100,10 +101,10 @@ export const Locations: React.FC = () => {
               <button
                 key={city}
                 onClick={() => setSelectedCity(city)}
-                className={`px-4 py-2.5 rounded-xl font-bold text-xs uppercase transition whitespace-nowrap ${
+                className={`px-4 py-2.5 font-bold text-[10px] uppercase tracking-widest transition whitespace-nowrap rounded-none ${
                   selectedCity === city
-                    ? 'bg-flo-purple text-white shadow'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-aluwind-green text-white shadow-md'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-100'
                 }`}
               >
                 {city}
@@ -116,37 +117,37 @@ export const Locations: React.FC = () => {
       </section>
 
       {/* Station Cards */}
-      <section className="pb-16 px-4 max-w-7xl mx-auto w-full">
+      <section className="pb-16 px-6 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredStations.map((st) => (
-            <div key={st.id} className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition duration-300 flex flex-col">
+            <div key={st.id} className="bg-gray-50 overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
               <img src={st.image} alt={st.name} className="h-48 w-full object-cover" />
               <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs font-bold text-flo-gold bg-flo-gold/10 px-2.5 py-1 rounded-md">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-[10px] font-extrabold text-aluwind-dark bg-aluwind-light px-2.5 py-1">
                       {st.city}
                     </span>
-                    <span className="text-xs text-emerald-600 font-semibold flex items-center space-x-1">
+                    <span className="text-[11px] text-emerald-700 font-bold flex items-center space-x-1">
                       <Clock className="w-3.5 h-3.5 mr-1" /> {st.hours}
                     </span>
                   </div>
-                  <h3 className="text-xl font-extrabold text-gray-900">{st.name}</h3>
-                  <p className="text-gray-600 text-xs mt-1 flex items-start space-x-1">
-                    <MapPin className="w-4 h-4 text-flo-purple shrink-0 mt-0.5" />
+                  <h3 className="text-lg font-bold text-gray-900">{st.name}</h3>
+                  <p className="text-gray-600 text-xs mt-2 flex items-start space-x-1.5">
+                    <MapPin className="w-4 h-4 text-aluwind-green shrink-0 mt-0.5" />
                     <span>{st.address}</span>
                   </p>
-                  <p className="text-gray-600 text-xs mt-1 flex items-center space-x-1">
-                    <Phone className="w-4 h-4 text-flo-purple shrink-0" />
+                  <p className="text-gray-600 text-xs mt-1.5 flex items-center space-x-1.5">
+                    <Phone className="w-4 h-4 text-aluwind-green shrink-0" />
                     <span>{st.phone}</span>
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-gray-100">
-                  <div className="text-xs font-bold text-gray-700 mb-2">Available Amenities:</div>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
+                <div className="pt-4 border-t border-gray-200">
+                  <div className="text-[10px] font-extrabold text-gray-700 uppercase tracking-widest mb-2">Available Amenities:</div>
+                  <div className="flex flex-wrap gap-1 mb-4">
                     {st.amenities.map((am, idx) => (
-                      <span key={idx} className="bg-gray-100 text-gray-700 text-xs px-2.5 py-1 rounded-md font-medium">
+                      <span key={idx} className="bg-white text-gray-600 text-xs px-2.5 py-1 border border-gray-100 font-medium">
                         {am}
                       </span>
                     ))}
@@ -155,9 +156,9 @@ export const Locations: React.FC = () => {
                     href={getStationMapUrl(st.id)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 bg-flo-purple-subtle hover:bg-flo-purple hover:text-white text-flo-purple font-bold text-xs rounded-xl transition flex items-center justify-center space-x-2"
+                    className="w-full py-3 bg-aluwind-light hover:bg-aluwind-light/80 text-aluwind-dark font-bold text-[10px] uppercase tracking-widest transition flex items-center justify-center space-x-2"
                   >
-                    <Navigation className="w-3.5 h-3.5" />
+                    <Navigation className="w-3.5 h-3.5 text-aluwind-dark" />
                     <span>Get Directions on Map</span>
                   </a>
                 </div>

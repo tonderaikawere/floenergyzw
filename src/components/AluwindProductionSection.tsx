@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 const AluwindProductionSection = () => {
   return (
-    <section className="py-20 bg-white text-gray-800 font-sans">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="py-24 bg-white text-gray-800 font-sans">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left text column */}
         <div>
           <div className="mb-4">
@@ -34,7 +34,7 @@ const AluwindProductionSection = () => {
           <img
             src={IMAGES.turbinesSea}
             alt="Production of offshore wind industry components"
-            className="w-full h-[380px] object-cover shadow-xl"
+            className="w-full h-[420px] object-cover shadow-xl"
           />
         </div>
       </div>

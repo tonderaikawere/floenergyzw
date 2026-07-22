@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 const AluwindRobustSection = () => {
   return (
-    <section className="py-20 bg-gray-50 text-gray-800 font-sans">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="py-24 bg-gray-50 text-gray-800 font-sans">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left image column */}
         <div className="relative order-2 lg:order-1">
           <img
             src={IMAGES.machinedMetal}
             alt="Robust lightweight aluminium structures for offshore use"
-            className="w-full h-[380px] object-cover shadow-xl"
+            className="w-full h-[420px] object-cover shadow-xl"
           />
         </div>
 

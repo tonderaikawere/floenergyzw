@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
+import AluwindHeaderTop from '../components/AluwindHeaderTop';
+import AluwindNavbar from '../components/AluwindNavbar';
 import Footer from '../components/Footer';
-import FuelPriceTicker from '../components/FuelPriceTicker';
 import QuoteModal from '../components/QuoteModal';
 import ZeraBadge from '../components/ZeraBadge';
 import DensityCalculator from '../components/DensityCalculator';
 import DeliveryTracker from '../components/DeliveryTracker';
-import { Truck, Fuel, ShieldCheck, CheckCircle2, ArrowRight, Shield, Award, Clock } from 'lucide-react';
+import { Truck, CheckCircle2, ArrowRight } from 'lucide-react';
+import WindLeafIcon from '../components/WindLeafIcon';
 
 export const BulkFuel: React.FC = () => {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
@@ -19,28 +20,28 @@ export const BulkFuel: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header />
-      <FuelPriceTicker />
+    <div className="min-h-screen bg-white flex flex-col font-sans">
+      <AluwindHeaderTop />
+      <AluwindNavbar />
 
       {/* Bulk Fuel Banner */}
-      <section className="flo-hero-gradient text-white py-16 px-4 relative overflow-hidden">
+      <section className="relative bg-aluwind-dark text-white py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-0" />
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           <div className="lg:col-span-7 space-y-4">
-            <span className="bg-flo-gold text-flo-dark text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-flex items-center space-x-1">
-              <Truck className="w-4 h-4" />
-              <span>FLO Commercial Logistics</span>
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-black text-white">
+            <div className="mb-2">
+              <WindLeafIcon className="w-8 h-4 text-aluwind-green" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white">
               Bulk Fuel Tanker Delivery & Storage
             </h1>
-            <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed max-w-xl">
               Nationwide on-site fuel dispatch. Guaranteed clean, dry Diesel 50ppm and Petrol delivered directly to your commercial storage facilities.
             </p>
             <div className="pt-2">
               <button
                 onClick={() => setIsQuoteOpen(true)}
-                className="flo-gold-gradient text-flo-dark font-extrabold text-sm uppercase px-6 py-3.5 rounded-xl shadow-lg hover:brightness-105 transition inline-flex items-center space-x-2"
+                className="bg-aluwind-green hover:bg-aluwind-green/90 text-white font-extrabold text-[11px] uppercase tracking-widest px-6 py-3.5 transition flex items-center space-x-2"
               >
                 <span>Order Bulk Fuel Tanker</span>
                 <ArrowRight className="w-4 h-4" />
@@ -52,17 +53,20 @@ export const BulkFuel: React.FC = () => {
             <img
               src="/images/flo/tanker_fb.jpg"
               alt="FLO Fuel Station Tanker Facebook Photo"
-              className="rounded-2xl border-2 border-white/20 shadow-2xl h-64 w-full object-cover"
+              className="border border-white/20 shadow-2xl h-56 w-full object-cover"
             />
           </div>
         </div>
       </section>
 
       {/* Tanker Fleet Selection */}
-      <section className="py-16 px-4 max-w-7xl mx-auto w-full">
+      <section className="py-16 px-6 max-w-7xl mx-auto w-full">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl font-extrabold text-flo-purple">Metered Bulk Tanker Fleet</h2>
-          <p className="text-gray-600 text-sm mt-1">
+          <div className="flex justify-center mb-3">
+            <WindLeafIcon className="w-8 h-4 text-aluwind-green" />
+          </div>
+          <h2 className="text-2xl font-extrabold text-gray-900">Metered Bulk Tanker Fleet</h2>
+          <p className="text-gray-600 text-xs mt-1">
             Every FLO fuel tanker is equipped with calibrated flow meters and multi-stage fuel filtration systems.
           </p>
         </div>
@@ -72,33 +76,33 @@ export const BulkFuel: React.FC = () => {
             <div
               key={idx}
               onClick={() => setSelectedCapacity(item.size)}
-              className={`cursor-pointer rounded-2xl p-6 border transition-all ${
+              className={`cursor-pointer p-6 border transition-all ${
                 selectedCapacity === item.size
-                  ? 'bg-white border-flo-purple shadow-xl ring-2 ring-flo-purple'
-                  : 'bg-white border-gray-200 hover:border-flo-purple/40 shadow-sm'
+                  ? 'bg-gray-50 border-aluwind-green shadow-md ring-1 ring-aluwind-green'
+                  : 'bg-white border-gray-200 hover:border-aluwind-green/40 shadow-sm'
               }`}
             >
-              <div className="w-12 h-12 bg-flo-purple-subtle text-flo-purple rounded-xl flex items-center justify-center font-black mb-4">
+              <div className="w-12 h-12 bg-aluwind-light text-aluwind-dark flex items-center justify-center font-black mb-4">
                 <Truck className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-black text-gray-900">{item.size}</h3>
+              <h3 className="text-xl font-bold text-gray-900">{item.size}</h3>
               <p className="text-gray-600 text-xs mt-2 leading-relaxed">{item.desc}</p>
-              <div className="mt-4 pt-4 border-t border-gray-100 flex items-center text-xs font-bold text-flo-purple">
+              <div className="mt-4 pt-4 border-t border-gray-100 flex items-center text-xs font-bold text-aluwind-green">
                 <span>Select Capacity</span>
-                <CheckCircle2 className="w-4 h-4 ml-auto text-flo-emerald" />
+                <CheckCircle2 className="w-4 h-4 ml-auto text-aluwind-green" />
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 bg-white rounded-3xl p-8 border border-gray-100 shadow-md text-center space-y-4">
-          <h3 className="text-xl font-bold text-gray-900">Need Custom Tanker Deliveries or Contract Supply?</h3>
-          <p className="text-gray-600 text-sm max-w-xl mx-auto">
+        <div className="mt-12 bg-gray-50 p-8 border border-gray-100 shadow-sm text-center space-y-4">
+          <h3 className="text-lg font-bold text-gray-900">Need Custom Tanker Deliveries or Contract Supply?</h3>
+          <p className="text-gray-600 text-xs max-w-xl mx-auto">
             Contact our dedicated commercial sales dispatch in Harare or Bulawayo for scheduled weekly/monthly contract rates.
           </p>
           <button
             onClick={() => setIsQuoteOpen(true)}
-            className="flo-gold-gradient text-flo-dark font-extrabold text-xs uppercase px-6 py-3.5 rounded-xl shadow-md inline-flex items-center space-x-2"
+            className="bg-aluwind-green hover:bg-aluwind-green/90 text-white font-extrabold text-[11px] uppercase tracking-widest px-6 py-3.5 transition inline-flex items-center space-x-2"
           >
             <span>Request Contract Quote ({selectedCapacity})</span>
             <ArrowRight className="w-4 h-4" />

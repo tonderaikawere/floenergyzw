@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
+import AluwindHeaderTop from '../components/AluwindHeaderTop';
+import AluwindNavbar from '../components/AluwindNavbar';
 import Footer from '../components/Footer';
-import FuelPriceTicker from '../components/FuelPriceTicker';
-import QuoteModal from '../components/QuoteModal';
 import ZeraBadge from '../components/ZeraBadge';
 import FuelComparisonTable from '../components/FuelComparisonTable';
 import { Fuel, Truck, Droplet, Flame, ShieldCheck, CreditCard, ArrowRight, CheckCircle2 } from 'lucide-react';
+import WindLeafIcon from '../components/WindLeafIcon';
 
 export const Services: React.FC = () => {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
@@ -55,79 +55,79 @@ export const Services: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header />
-      <FuelPriceTicker />
+    <div className="min-h-screen bg-white flex flex-col font-sans">
+      <AluwindHeaderTop />
+      <AluwindNavbar />
 
       {/* Services Hero Header */}
-      <section className="flo-hero-gradient text-white py-16 px-4 relative overflow-hidden">
+      <section className="relative bg-aluwind-dark text-white py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-0" />
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           <div className="lg:col-span-7 space-y-4">
-            <span className="bg-flo-gold text-flo-dark text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-flex items-center space-x-1">
-              <ShieldCheck className="w-4 h-4" />
-              <span>FLO Petroleum Zimbabwe</span>
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-black text-white">
+            <div className="mb-2">
+              <WindLeafIcon className="w-8 h-4 text-aluwind-green" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white">
               Petroleum & Fuel Solutions
             </h1>
-            <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed max-w-xl">
               Delivering high-performance fuels, bulk logistics, and fleet card services tailored to power Zimbabwe’s commercial, agricultural, and industrial sectors.
             </p>
           </div>
 
           <div className="lg:col-span-5">
             <img
-              src="https://floenergy.net/wp-content/uploads/2020/06/Flo1.jpg"
+              src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800"
               alt="FLO Energy Station"
-              className="rounded-2xl border-2 border-white/20 shadow-2xl h-64 w-full object-cover"
+              className="border border-white/20 shadow-2xl h-56 w-full object-cover"
             />
           </div>
         </div>
       </section>
 
       {/* Services List Grid */}
-      <section className="py-16 px-4 max-w-7xl mx-auto w-full">
+      <section className="py-16 px-6 max-w-7xl mx-auto w-full">
         <div className="space-y-8">
           {servicesList.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.id}
-                className="bg-white rounded-3xl p-8 border border-gray-100 shadow-md hover:shadow-xl transition duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                className="bg-gray-50 p-8 border border-gray-100 shadow-sm hover:shadow-md transition duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="bg-flo-purple-subtle p-3 rounded-2xl text-flo-purple">
+                    <div className="bg-aluwind-light p-3 text-aluwind-dark">
                       <Icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <span className="text-xs font-extrabold text-flo-purple uppercase tracking-wider bg-flo-purple-subtle/60 px-2.5 py-1 rounded-md">
+                      <span className="text-[10px] font-extrabold text-aluwind-dark uppercase tracking-widest bg-aluwind-light px-2.5 py-1">
                         {service.badge}
                       </span>
-                      <h3 className="text-2xl font-black text-gray-900 mt-1">{service.title}</h3>
+                      <h3 className="text-xl font-bold text-gray-900 mt-2">{service.title}</h3>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{service.description}</p>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{service.description}</p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
                     {service.specs.map((spec, idx) => (
-                      <div key={idx} className="flex items-center space-x-2 text-xs font-semibold text-gray-700 bg-gray-50 p-2.5 rounded-xl border border-gray-100">
-                        <CheckCircle2 className="w-4 h-4 text-flo-emerald shrink-0" />
+                      <div key={idx} className="flex items-center space-x-2 text-[11px] font-semibold text-gray-700 bg-white p-2.5 border border-gray-100">
+                        <CheckCircle2 className="w-4 h-4 text-aluwind-green shrink-0" />
                         <span>{spec}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 bg-flo-purple-subtle/30 rounded-2xl border border-flo-purple/10 text-center space-y-4">
-                  <span className="text-xs font-bold text-gray-600 uppercase">Need This Service?</span>
+                <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 bg-aluwind-light/40 border border-aluwind-light text-center space-y-4">
+                  <span className="text-[10px] font-extrabold text-gray-600 uppercase tracking-widest">Need This Service?</span>
                   <button
                     onClick={() => {
                       setSelectedProduct(service.title);
                       setIsQuoteOpen(true);
                     }}
-                    className="w-full flo-gold-gradient text-flo-dark font-extrabold text-xs uppercase px-5 py-3.5 rounded-xl shadow-md hover:brightness-105 transition flex items-center justify-center space-x-2"
+                    className="w-full bg-aluwind-green hover:bg-aluwind-green/90 text-white font-extrabold text-[11px] uppercase tracking-widest px-5 py-3.5 transition flex items-center justify-center space-x-2"
                   >
                     <span>Request Quotation</span>
                     <ArrowRight className="w-4 h-4" />

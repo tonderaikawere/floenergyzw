@@ -63,6 +63,13 @@ export default {
 					gold: 'hsl(var(--flo-gold))',
 					emerald: 'hsl(var(--flo-emerald))',
 					dark: 'hsl(var(--flo-dark))'
+				},
+				aluwind: {
+					dark: '#0c2216',
+					green: '#3ba85c',
+					light: '#dbe7db',
+					pale: '#e2f0d9',
+					accent: '#46b866'
 				}
 			},
 			borderRadius: {

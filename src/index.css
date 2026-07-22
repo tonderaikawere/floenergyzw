@@ -131,3 +131,30 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Aluwind Button Hover Animations */
+.aluwind-btn {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.aluwind-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(59, 168, 92, 0.3);
+}
+
+.aluwind-btn:active {
+  transform: translateY(0);
+}
+
+/* Aluwind card hover lift */
+.aluwind-card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aluwind-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+

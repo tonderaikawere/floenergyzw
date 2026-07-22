@@ -1,58 +1,46 @@
-import { useState } from 'react';
-import Header from '../components/Header';
+import AluwindHeaderTop from '../components/AluwindHeaderTop';
+import AluwindNavbar from '../components/AluwindNavbar';
+import AluwindHero from '../components/AluwindHero';
+import AluwindHeroCards from '../components/AluwindHeroCards';
+import AluwindProductionSection from '../components/AluwindProductionSection';
+import AluwindPartnerSection from '../components/AluwindPartnerSection';
+import AluwindRobustSection from '../components/AluwindRobustSection';
+import AluwindOptimizedSection from '../components/AluwindOptimizedSection';
+import AluwindContactSection from '../components/AluwindContactSection';
 import Footer from '../components/Footer';
-import FuelPriceTicker from '../components/FuelPriceTicker';
-import InduzyHero from '../components/InduzyHero';
-import InduzyAboutSection from '../components/InduzyAboutSection';
-import InduzyServicesGrid from '../components/InduzyServicesGrid';
-import InduzyWhyChooseUs from '../components/InduzyWhyChooseUs';
-import InduzyGallery from '../components/InduzyGallery';
-import InduzyCallToAction from '../components/InduzyCallToAction';
-import FuelCalculator from '../components/FuelCalculator';
-import Testimonials from '../components/Testimonials';
-import QuoteModal from '../components/QuoteModal';
 
 const Home = () => {
-  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
-
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
-      {/* 3-Tier Induzy Header */}
-      <Header />
+    <div className="min-h-screen bg-white flex flex-col font-sans">
+      {/* Header Top Bar */}
+      <AluwindHeaderTop />
       
-      {/* Live Daily Fuel Rates Ticker */}
-      <FuelPriceTicker />
+      {/* Navigation Bar */}
+      <AluwindNavbar />
 
-      {/* Induzy Hero Banner & 3-Color Overlapping Feature Cards */}
-      <InduzyHero />
+      {/* Hero Banner */}
+      <AluwindHero />
 
-      {/* Induzy About Us Section with 12+ Experience Badge */}
-      <InduzyAboutSection />
+      {/* Overlapping Info Cards */}
+      <AluwindHeroCards />
 
-      {/* Induzy 6-Column Industrial Services Grid */}
-      <InduzyServicesGrid />
+      {/* Production Section */}
+      <AluwindProductionSection />
 
-      {/* Bulk Fuel Volume & Savings Calculator */}
-      <section className="py-16 px-4 max-w-7xl mx-auto w-full">
-        <FuelCalculator />
-      </section>
+      {/* Partner Section */}
+      <AluwindPartnerSection />
 
-      {/* Induzy Why Choose Us Counter & Standards Section */}
-      <InduzyWhyChooseUs />
+      {/* Robust Section */}
+      <AluwindRobustSection />
 
-      {/* Induzy Infrastructure & Terminal Gallery */}
-      <InduzyGallery />
+      {/* Optimized Banner */}
+      <AluwindOptimizedSection />
 
-      {/* Commercial Partner Reviews */}
-      <Testimonials />
+      {/* Contact Section */}
+      <AluwindContactSection />
 
-      {/* Induzy Full-Width Yellow CTA Strip */}
-      <InduzyCallToAction />
-
-      {/* Induzy 4-Column Dark Footer */}
+      {/* Footer */}
       <Footer />
-      
-      <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
     </div>
   );
 };

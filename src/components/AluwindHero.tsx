@@ -54,7 +54,7 @@ export const AluwindHero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 shadow-2xl">
           {/* Card 1: Dark Forest */}
-          <div className="bg-[#0a140e] p-8 border-t-4 border-[#4caf50] space-y-4 flex flex-col justify-between">
+          <div className="bg-[#0a140e] p-8 border-t-4 border-[#4caf50] space-y-4 flex flex-col justify-between hover:bg-[#162a1f] transition">
             <div className="space-y-3">
               <h3 className="text-lg font-black text-white">The values of FLO Energy</h3>
               <p className="text-xs text-gray-300 leading-relaxed">
@@ -68,7 +68,7 @@ export const AluwindHero: React.FC = () => {
           </div>
 
           {/* Card 2: Medium Green */}
-          <div className="bg-[#388e3c] p-8 border-t-4 border-white text-white space-y-4 flex flex-col justify-between">
+          <div className="bg-[#388e3c] p-8 border-t-4 border-white text-white space-y-4 flex flex-col justify-between hover:bg-[#2e7d32] transition">
             <div className="space-y-3">
               <h3 className="text-lg font-black text-white">Leading offshore & bulk solutions</h3>
               <p className="text-xs text-white/90 leading-relaxed">
@@ -82,7 +82,7 @@ export const AluwindHero: React.FC = () => {
           </div>
 
           {/* Card 3: Light Mint */}
-          <div className="bg-[#d4edda] p-8 border-t-4 border-[#388e3c] text-[#0f1f17] space-y-4 flex flex-col justify-between">
+          <div className="bg-[#d4edda] p-8 border-t-4 border-[#388e3c] text-[#0f1f17] space-y-4 flex flex-col justify-between hover:bg-[#c3e6cb] transition">
             <div className="space-y-3">
               <h3 className="text-lg font-black text-[#0f1f17]">High-quality fuel components</h3>
               <p className="text-xs text-[#0f1f17]/80 leading-relaxed">
